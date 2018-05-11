@@ -6,7 +6,7 @@ public class TriggerWeightCounter : MonoBehaviour
 {
 
     public float totalWeight;
-    public List<Collider> colliders;
+    [SerializeField] private List<Collider> colliders;
 
     void Start()
     {
@@ -18,6 +18,7 @@ public class TriggerWeightCounter : MonoBehaviour
         if (!colliders.Contains(other))
         {
             colliders.Add(other);
+            //todo check if has component
             totalWeight += other.gameObject.GetComponent<ObjectProperties>().fakeMass;
         }
     }
@@ -27,6 +28,7 @@ public class TriggerWeightCounter : MonoBehaviour
         if (colliders.Contains(other))
         {
             colliders.Remove(other);
+            //todo check if has component
             totalWeight -= other.gameObject.GetComponent<ObjectProperties>().fakeMass;
         }
     }

@@ -99,7 +99,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!65 &65500644633307182
 BoxCollider:
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fakeMass: 1
   canPickup: 0
+  canPush: 0

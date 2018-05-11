@@ -6,14 +6,10 @@ public class ObjectProperties : MonoBehaviour {
 
     public float fakeMass=1;
     public bool canPickup;
+    public bool canPush;
 
-	// Use this for initialization
 	void Start () {
-		
+		//todo set mass to equal fake mass?
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

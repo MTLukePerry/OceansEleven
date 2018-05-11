@@ -6,10 +6,9 @@ public class SpringTestMain : MonoBehaviour {
 
     public static SpringTestMain S = null;
 
-    [SerializeField] SpringJoint topLeftSpring;
-    [SerializeField] SpringJoint topRightSpring;
-    [SerializeField] SpringJoint bottomLeftSpring;
-    [SerializeField] SpringJoint bottimRightSpring;
+    [SerializeField] List<SpringJoint> springJoints;
+    [SerializeField] List<TriggerWeightCounter> triggerMass;
+    [SerializeField] float maxSpringDist=3.0f;
 
 
 
@@ -32,8 +31,12 @@ public class SpringTestMain : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void LateUpdate () {
+        for (int i = 0; i < springJoints.Count;i++){
+            if (triggerMass[i].totalWeight <= maxSpringDist)
+            {
+                springJoints[i].maxDistance = triggerMass[i].totalWeight;
+            }
+        }
 	}
 }
