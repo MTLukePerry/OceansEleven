@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,17 +140,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce7dce9e67434d0aa528e8ba3d86248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springJoints:
+  _springJoints:
   - {fileID: 865661008}
   - {fileID: 1232089007}
   - {fileID: 308280897}
   - {fileID: 485333803}
-  triggerMass:
+  _triggerMass:
   - {fileID: 526879915}
   - {fileID: 1292739344}
   - {fileID: 1819874322}
   - {fileID: 1675725992}
-  maxSpringDist: 3
+  _maxSpringDist: 3
 --- !u!4 &263898556
 Transform:
   m_ObjectHideFlags: 0
@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!1001 &611233720
 Prefab:
   m_ObjectHideFlags: 0
@@ -624,12 +624,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 65500644633307182, guid: d27291c81a2704050b09fe05a0dc40c3,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: e66c9804dcc10458283e2e92e8905d53,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d27291c81a2704050b09fe05a0dc40c3, type: 2}
   m_IsPrefabParent: 0
@@ -746,9 +740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500727f080c0d4d58a5178d80f4fc1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeMass: 0
-  canPickup: 0
-  canPush: 0
+  _fakeMass: 1
+  _canPickup: 0
+  _canPush: 0
 --- !u!1 &865661007
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,9 +980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500727f080c0d4d58a5178d80f4fc1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeMass: 0
-  canPickup: 0
-  canPush: 0
+  _fakeMass: 1
+  _canPickup: 0
+  _canPush: 0
 --- !u!1 &1082483995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,9 +1169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500727f080c0d4d58a5178d80f4fc1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeMass: 0
-  canPickup: 0
-  canPush: 0
+  _fakeMass: 1
+  _canPickup: 0
+  _canPush: 0
 --- !u!1 &1232089006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,8 +1393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!1 &1673476738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,8 +1573,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!1001 &1716860815
 Prefab:
   m_ObjectHideFlags: 0
@@ -1736,9 +1730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500727f080c0d4d58a5178d80f4fc1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeMass: 0
-  canPickup: 0
-  canPush: 0
+  _fakeMass: 1
+  _canPickup: 0
+  _canPush: 0
 --- !u!1 &1819874317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,8 +1830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!1 &1937118147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +1945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500727f080c0d4d58a5178d80f4fc1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeMass: 0
-  canPickup: 0
-  canPush: 0
+  _fakeMass: 1
+  _canPickup: 0
+  _canPush: 0

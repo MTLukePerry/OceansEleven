@@ -143,10 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade3d8a5d9a1fde4593ef7105e3cb8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 0.6
-  speed: 1.5
-  noiseStrength: 1
-  noiseWalk: 1
+  _scale: 0.2
+  _speed: 1.5
+  _noiseStrength: 1
+  _noiseWalk: 1
 --- !u!64 &366640805
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371154103}
   - component: {fileID: 371154102}
+  - component: {fileID: 371154104}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -243,17 +244,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce7dce9e67434d0aa528e8ba3d86248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springJoints:
+  _springJoints:
   - {fileID: 1332635682}
   - {fileID: 462521778}
   - {fileID: 1137314951}
   - {fileID: 1178856831}
-  triggerMass:
+  _triggerMass:
   - {fileID: 1269130829}
   - {fileID: 1687029640}
   - {fileID: 865381963}
   - {fileID: 943213298}
-  maxSpringDist: 3
+  _maxSpringDist: 10
 --- !u!4 &371154103
 Transform:
   m_ObjectHideFlags: 0
@@ -267,6 +268,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371154104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 371154101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d320c94fe51834e983b51ead385cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &378084605
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +352,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 1091420471}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.5, y: 41, z: 0.5}
+  m_ConnectedAnchor: {x: 0.5, y: 38, z: 0.5}
   serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
@@ -472,10 +484,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1064917560664362, guid: 62b9ea33afb1148c580908e32713f552, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62b9ea33afb1148c580908e32713f552, type: 2}
   m_IsPrefabParent: 0
@@ -517,16 +525,6 @@ Prefab:
     - target: {fileID: 4158258757453618, guid: d27291c81a2704050b09fe05a0dc40c3, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 65500644633307182, guid: d27291c81a2704050b09fe05a0dc40c3,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: e66c9804dcc10458283e2e92e8905d53,
-        type: 2}
-    - target: {fileID: 1917436439399284, guid: d27291c81a2704050b09fe05a0dc40c3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d27291c81a2704050b09fe05a0dc40c3, type: 2}
@@ -910,8 +908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!33 &865381964
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1110,8 +1108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!33 &943213299
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1337,7 +1335,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 1091420471}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5, y: 41, z: -0.5}
+  m_ConnectedAnchor: {x: -0.5, y: 38, z: -0.5}
   serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
@@ -1473,7 +1471,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 1091420471}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.5, y: 41, z: -0.5}
+  m_ConnectedAnchor: {x: 0.5, y: 38, z: -0.5}
   serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
@@ -1656,8 +1654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!33 &1269130830
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1708,7 +1706,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 1091420471}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5, y: 41, z: 0.5}
+  m_ConnectedAnchor: {x: -0.5, y: 38, z: 0.5}
   serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
@@ -2249,8 +2247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd72f5103c024d28b32a8eb79ca98ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWeight: 0
-  colliders: []
+  _totalWeight: 0
+  _colliders: []
 --- !u!33 &1687029641
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2296,25 +2294,6 @@ Prefab:
     - target: {fileID: 4619241740368110, guid: b9128564e515f4a758425c4d1bef06e1, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1087762971225958, guid: b9128564e515f4a758425c4d1bef06e1, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54274083057791094, guid: b9128564e515f4a758425c4d1bef06e1,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114441096686723050, guid: b9128564e515f4a758425c4d1bef06e1,
-        type: 2}
-      propertyPath: fakeMass
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114441096686723050, guid: b9128564e515f4a758425c4d1bef06e1,
-        type: 2}
-      propertyPath: canPickup
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9128564e515f4a758425c4d1bef06e1, type: 2}
