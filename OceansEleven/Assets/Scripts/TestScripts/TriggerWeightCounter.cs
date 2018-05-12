@@ -5,31 +5,31 @@ using UnityEngine;
 public class TriggerWeightCounter : MonoBehaviour
 {
 
-    public float totalWeight;
-    [SerializeField] private List<Collider> colliders;
+    public float _totalWeight;
+    [SerializeField] private List<Collider> _colliders;
 
     void Start()
     {
-        colliders = new List<Collider>();
+        _colliders = new List<Collider>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (!colliders.Contains(other))
+        var objectProperties = other.gameObject.GetComponent<ObjectProperties>();
+        if (objectProperties != null && !_colliders.Contains(other))
         {
-            colliders.Add(other);
-            //todo check if has component
-            totalWeight += other.gameObject.GetComponent<ObjectProperties>().fakeMass;
+            _colliders.Add(other);
+            _totalWeight += objectProperties._fakeMass;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (colliders.Contains(other))
+        var objectProperties = other.gameObject.GetComponent<ObjectProperties>();
+        if (objectProperties != null && _colliders.Contains(other))
         {
-            colliders.Remove(other);
-            //todo check if has component
-            totalWeight -= other.gameObject.GetComponent<ObjectProperties>().fakeMass;
+            _colliders.Remove(other);
+            _totalWeight -= objectProperties._fakeMass;
         }
     }
 

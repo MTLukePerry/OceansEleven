@@ -6,11 +6,9 @@ public class SpringTestMain : MonoBehaviour {
 
     public static SpringTestMain S = null;
 
-    [SerializeField] List<SpringJoint> springJoints;
-    [SerializeField] List<TriggerWeightCounter> triggerMass;
-    [SerializeField] float maxSpringDist=3.0f;
-
-
+    [SerializeField] List<SpringJoint> _springJoints;
+    [SerializeField] List<TriggerWeightCounter> _triggerMass;
+    [SerializeField] float _maxSpringDist = 10.0f;
 
     void Awake()
     {
@@ -25,17 +23,14 @@ public class SpringTestMain : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	void LateUpdate () {
-        for (int i = 0; i < springJoints.Count;i++){
-            if (triggerMass[i].totalWeight <= maxSpringDist)
+	void LateUpdate ()
+    {
+        for (int i = 0; i < _springJoints.Count;i++)
+        {
+            if (_triggerMass[i]._totalWeight <= _maxSpringDist)
             {
-                springJoints[i].maxDistance = triggerMass[i].totalWeight;
+                _springJoints[i].maxDistance = _triggerMass[i]._totalWeight;
             }
         }
 	}

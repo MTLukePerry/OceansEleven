@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectProperties : MonoBehaviour {
+public class ObjectProperties : MonoBehaviour
+{
+    public float _fakeMass = 1;
+    public bool _canPickup;
+    public bool _canPush;
 
-    public float fakeMass=1;
-    public bool canPickup;
-    public bool canPush;
-
-	void Start () {
+	private void Start ()
+    {
 		//todo set mass to equal fake mass?
 	}
 
