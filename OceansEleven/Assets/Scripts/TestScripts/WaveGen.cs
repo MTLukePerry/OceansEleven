@@ -7,6 +7,7 @@ public class WaveGen : MonoBehaviour
     [SerializeField] private float _speed = 1.0f;
     [SerializeField] private float _noiseStrength = 1f;
     [SerializeField] private float _noiseWalk = 1f;
+    [SerializeField] private float _textureOffsetSpeed = 0.1f;
 
     private Mesh _mesh;
     private MeshCollider _meshCollider;
@@ -42,7 +43,7 @@ public class WaveGen : MonoBehaviour
         _meshCollider.sharedMesh = _mesh;
 
         //Material offset
-        float offset = Time.time * _speed / 30;
+        float offset = (Time.time * _speed) * _textureOffsetSpeed;
         _waveMaterial.SetTextureOffset("_MainTex", new Vector2(-offset, -offset));
     }
 }
