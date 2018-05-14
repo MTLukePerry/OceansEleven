@@ -7,21 +7,36 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 300;
 
     private Rigidbody _rigidbody;
+    private PlayerPickupTrigger _pickupTrigger;
+    private ObjectProperties _pickedUpItem;
+    private Transform _pickedUpItemSlot;
 
     private int _controllerNumber = 0;
 
     private void Start ()
     {
         _rigidbody = GetComponent<Rigidbody>();
-	}
+        _pickupTrigger = GetComponentInChildren<PlayerPickupTrigger>();
+        _pickedUpItemSlot = transform.Find("PickupItemSlot");
+    }
 
-	private void Update ()
+    private void Update()
     {
-		if (_controllerNumber > 0)
+        if (_controllerNumber > 0)
         {
             PlayerControls();
         }
-	}
+
+        if (Input.GetButton("Jump")) // TODO
+        {
+            PickupItem();
+        }
+
+        if (_pickedUpItem != null)
+        {
+            _pickedUpItem.transform.position = _pickedUpItemSlot.position;
+        }
+    }
 
     private void PlayerControls ()
     {
@@ -73,6 +88,32 @@ public class PlayerController : MonoBehaviour
         if (textureManager != null)
         {
             GetComponent<Renderer>().material = textureManager.GetMaterialFromPlayerNumber(controller);
+        }
+    }
+
+    private void PickupItem()
+    {
+        if (_pickedUpItem == null)
+        {
+            bool pickedUp = false;
+            if (_pickupTrigger.ObjectsAvailable.Count > 0)
+            {
+                //TODO depends on whcih item is closest to the centre of the trigger
+                _pickedUpItem = _pickupTrigger.ObjectsAvailable[0];
+                pickedUp = true;
+            }
+
+            if (pickedUp && _pickedUpItem != null)
+            {
+                _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                //todo set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you'repicking up
+                _pickedUpItem.transform.position = _pickedUpItemSlot.position;
+            }
+        }
+        else
+        {
+            _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            _pickedUpItem = null;
         }
     }
 }

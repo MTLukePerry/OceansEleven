@@ -23,8 +23,8 @@ public class SpringTestMain : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
     }
-	
-	void LateUpdate ()
+    
+    void LateUpdate ()
     {
         for (int i = 0; i < _springJoints.Count;i++)
         {
@@ -33,5 +33,5 @@ public class SpringTestMain : MonoBehaviour {
                 _springJoints[i].maxDistance = _triggerMass[i]._totalWeight;
             }
         }
-	}
+    }
 }
