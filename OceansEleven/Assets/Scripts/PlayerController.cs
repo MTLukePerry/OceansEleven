@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
             PlayerControls();
         }
 
-        if (Input.GetButton("Jump")) // TODO
+        if (Input.GetButtonDown("Jump")) // TODO
         {
             PickupItem();
         }
