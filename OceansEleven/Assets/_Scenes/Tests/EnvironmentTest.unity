@@ -367,7 +367,9 @@ MonoBehaviour:
   m_ShowToolkit: 0
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
+  m_BeforeTransparentBundles:
+  - assemblyQualifiedName: EdgeDetectPostProcessing, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
 --- !u!1 &960363284

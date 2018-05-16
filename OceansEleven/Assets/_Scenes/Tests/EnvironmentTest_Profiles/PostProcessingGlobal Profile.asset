@@ -14,6 +14,7 @@ MonoBehaviour:
   settings:
   - {fileID: 114314519293510040}
   - {fileID: 114476208273850956}
+  - {fileID: 114875859376627684}
 --- !u!114 &114314519293510040
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -84,6 +85,45 @@ MonoBehaviour:
   opacity:
     overrideState: 1
     value: 1
+--- !u!114 &114875859376627684
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d855211644836f4782ecd611ffbc36f, type: 3}
+  m_Name: EdgeDetectPostProcessing
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 3
+  sensitivityDepth:
+    overrideState: 1
+    value: 1
+  sensitivityNormals:
+    overrideState: 1
+    value: 1
+  lumThreshold:
+    overrideState: 1
+    value: 0.2
+  edgeExp:
+    overrideState: 1
+    value: 1
+  sampleDist:
+    overrideState: 1
+    value: 2.88
+  edgesOnly:
+    overrideState: 1
+    value: 0
+  edgesOnlyBgColor:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &114951343389504598
 MonoBehaviour:
   m_ObjectHideFlags: 3
