@@ -8,9 +8,9 @@ public class ObjectProperties : MonoBehaviour
     public bool _canPickup;
     public bool _canPush;
 
-	private void Start ()
+    private void Start ()
     {
-		//todo set mass to equal fake mass?
-	}
+        //todo set mass to equal fake mass?
+    }
 
 }

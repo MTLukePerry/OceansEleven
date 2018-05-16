@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _speed = 300;
+    [SerializeField] private float _strength = 1;
+    [SerializeField] private float _intitialThrowStrength = 500;
 
     private Rigidbody _rigidbody;
     private PlayerPickupTrigger _pickupTrigger;
@@ -27,11 +29,6 @@ public class PlayerController : MonoBehaviour
             PlayerControls();
         }
 
-        if (Input.GetButtonDown("Jump")) // TODO
-        {
-            PickupItem();
-        }
-
         if (_pickedUpItem != null)
         {
             _pickedUpItem.transform.position = _pickedUpItemSlot.position;
@@ -46,6 +43,16 @@ public class PlayerController : MonoBehaviour
         if (vertical != 0 || horizontal != 0)
         {
             MoveCharacter(horizontal, vertical);
+        }
+
+        if (Input.GetButtonDown("Interact_P" + _controllerNumber)) // TODO
+        {
+            PickupItem();
+        }
+
+        if (Input.GetAxis("Trigger_P" + _controllerNumber) < 0)
+        {
+            ThrowItem();
         }
     }
 
@@ -112,8 +119,25 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            _pickedUpItem = null;
+            ReleaseItem();
         }
+    }
+
+    private void ThrowItem()
+    {
+        if (_pickedUpItem != null)
+        {
+            ReleaseItem(transform.forward);
+        }
+    }
+
+    private void ReleaseItem(Vector3 forceDirection = new Vector3())
+    {
+        _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        if (forceDirection != default(Vector3))
+        {
+            _pickedUpItem.gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * (_intitialThrowStrength * _strength) + (GetComponent<Rigidbody>().velocity * 20)); // TODO variable throw based on strength
+        }
+        _pickedUpItem = null;
     }
 }
