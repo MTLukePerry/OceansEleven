@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 960363285}
-  m_IndirectSpecularColor: {r: 0.07108245, g: 0.35658595, b: 0.9783139, a: 1}
+  m_IndirectSpecularColor: {r: 0.29779556, g: 0.636184, b: 0.99759144, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,7 +192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4606382385623062, guid: c81fea4b24dd24e53a9447e0c525ad4f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114548977463417844, guid: c81fea4b24dd24e53a9447e0c525ad4f,
         type: 2}
@@ -342,7 +342,7 @@ MonoBehaviour:
     keepAlpha: 0
   fog:
     enabled: 1
-    excludeSkybox: 1
+    excludeSkybox: 0
   debugLayer:
     lightMeter:
       width: 512
@@ -367,9 +367,7 @@ MonoBehaviour:
   m_ShowToolkit: 0
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles:
-  - assemblyQualifiedName: EdgeDetectPostProcessing, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
 --- !u!1 &960363284
@@ -435,7 +433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 54.815002, y: -181.00299, z: -4.918}
 --- !u!1 &1377287112
 GameObject:
@@ -446,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377287114}
   - component: {fileID: 1377287113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PostProcessingGlobal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +478,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042007602
 GameObject:
