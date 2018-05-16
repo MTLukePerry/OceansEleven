@@ -25,10 +25,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Pixels
   m_Id: 6bd5b975-676d-4c86-be8a-66adb7307ead
-  m_OutputSize: 720
+  m_OutputSize: 0
   m_AspectRatio: 0
   m_ForceEvenSize: 1
-  source: 1
+  source: 4
   m_CameraTag: 
   m_FlipFinalOutput: 1
   m_AllowTransparency: 0
