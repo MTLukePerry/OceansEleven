@@ -251,6 +251,7 @@ MonoBehaviour:
   _fullSpeedProgress: 0.00005
   _fullProgressBoundary: 0.4
   _twoThirdsProgressBoundary: 0.15
+  _paddleWheelSpeed: {fileID: 379060691}
 --- !u!114 &371154106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +267,12 @@ MonoBehaviour:
   _p2Material: {fileID: 2100000, guid: d7eae17fb218e4f4599b9f9f8d0701bb, type: 2}
   _p3Material: {fileID: 2100000, guid: 94fe7d20f045642a49fe6fea6997937e, type: 2}
   _p4Material: {fileID: 2100000, guid: c8171200b50cb490f86500ed3a66878a, type: 2}
+--- !u!114 &379060691 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114286140405571288, guid: e90c3672a61854c9e816268a884f1b26,
+    type: 2}
+  m_PrefabInternal: {fileID: 928777821}
+  m_Script: {fileID: 11500000, guid: d6ec7d56bc585429b8772716f9bc6269, type: 3}
 --- !u!1001 &471687823
 Prefab:
   m_ObjectHideFlags: 0
@@ -304,6 +311,11 @@ Prefab:
     - target: {fileID: 4606382385623062, guid: c81fea4b24dd24e53a9447e0c525ad4f, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114445177899517878, guid: c81fea4b24dd24e53a9447e0c525ad4f,
+        type: 2}
+      propertyPath: _speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c81fea4b24dd24e53a9447e0c525ad4f, type: 2}
