@@ -10,6 +10,10 @@ public class ObjectProperties : MonoBehaviour
 
     private void Start ()
     {
+        if (_canPickup)
+        {
+            _canPush = false;
+        }
         //todo set mass to equal fake mass?
     }
 

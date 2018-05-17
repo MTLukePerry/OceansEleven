@@ -8,6 +8,7 @@ public class PlayerPickupTrigger : MonoBehaviour
     public Action _triggerCallback;
 
     private List<ObjectProperties> _pickupObjectsAvailable = new List<ObjectProperties>();
+    private List<ObjectProperties> _pushObjectsAvailable = new List<ObjectProperties>();
     private List<ObjectProperties> _interactiveObjectsAvailable = new List<ObjectProperties>();
 
     public List<ObjectProperties> PickupObjectsAvailable
@@ -15,6 +16,14 @@ public class PlayerPickupTrigger : MonoBehaviour
         get
         {
             return _pickupObjectsAvailable;
+        }
+    }
+
+    public List<ObjectProperties> PushObjectsAvailable
+    {
+        get
+        {
+            return _pushObjectsAvailable;
         }
     }
 
@@ -35,7 +44,12 @@ public class PlayerPickupTrigger : MonoBehaviour
             {
                 _pickupObjectsAvailable.Add(objProperties);
             }
-            else if (objProperties is InteractiveObject)
+            else if (objProperties._canPush)
+            {
+                _pushObjectsAvailable.Add(objProperties);
+            }
+
+            if (objProperties is InteractiveObject)
             {
                 _interactiveObjectsAvailable.Add(objProperties);
             }
@@ -56,13 +70,17 @@ public class PlayerPickupTrigger : MonoBehaviour
             {
                 _pickupObjectsAvailable.Remove(objProperties);
             }
+            else if (_pushObjectsAvailable.Contains(objProperties))
+            {
+                _pushObjectsAvailable.Remove(objProperties);
+            }
 
             if (_interactiveObjectsAvailable.Contains(objProperties))
             {
                 var interaction = (InteractiveObject)objProperties;
                 if (interaction.BeingInteractedWith)
                 {
-                    interaction.InteractedWith(false);
+                    interaction.InteractedWith(false, null);
                 }
                 _interactiveObjectsAvailable.Remove(objProperties);
             }
