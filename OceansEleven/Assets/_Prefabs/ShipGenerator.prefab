@@ -126,8 +126,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972892923859338}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.457, y: 0.5, z: -0.1}
-  m_LocalScale: {x: 2.5, y: 200, z: 5}
+  m_LocalPosition: {x: -7.706682, y: -0.71828175, z: -3.4382727}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4304790606705904}
   - {fileID: 4505523935053036}
@@ -299,11 +299,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bcbc36a2373a9408c1273312d4fb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fakeMass: 1
+  _fakeMass: 0
   _canPickup: 0
   _canPush: 0
+  _anyObjectForInteraction: 0
   _toolRequiredForInteraction: 0
   _LiquidRequired: 2
+  _consumesObjectOnUse: 0
   _uiSlider: {fileID: 0}
   _fillRate: 0.035
   _decayRate: 0.015
