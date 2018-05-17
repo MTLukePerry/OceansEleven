@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerPickupTrigger : MonoBehaviour
 {
+    private PlayerController player;
+
     public Action _triggerCallback;
 
     private List<ObjectProperties> _pickupObjectsAvailable = new List<ObjectProperties>();
@@ -33,6 +35,11 @@ public class PlayerPickupTrigger : MonoBehaviour
         {
             return _interactiveObjectsAvailable;
         }
+    }
+
+    private void Start()
+    {
+        player = GetComponentInParent<PlayerController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,6 +88,7 @@ public class PlayerPickupTrigger : MonoBehaviour
                 if (interaction.BeingInteractedWith)
                 {
                     interaction.InteractedWith(false, null);
+                    player.InteractingItem = null;
                 }
                 _interactiveObjectsAvailable.Remove(objProperties);
             }
