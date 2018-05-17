@@ -51,6 +51,8 @@ public class Cannon : InteractiveObject
             rb.isKinematic = false;
             var normalizedFireRotation = Vector3.Normalize(gameObject.transform.forward + new Vector3(0, _additionalUpAngle, 0));
             rb.AddForce(normalizedFireRotation * _cannonFirePower * (rb.mass * 10));
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
             yield return new WaitForSeconds(0.1f);
         }
         _ammo.Clear();
