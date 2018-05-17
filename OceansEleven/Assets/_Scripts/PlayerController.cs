@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _intitialThrowStrength = 500;
 
     [SerializeField] private float _baseTurnRate = 0.15f;
+    private float _currentTurnRate;
 
     private Rigidbody _rigidbody;
     private PlayerPickupTrigger _interactionTrigger;
@@ -17,9 +18,23 @@ public class PlayerController : MonoBehaviour
     private Transform _pushItemSlot;
 
     private ObjectProperties _pickedUpItem;
+    private ObjectProperties _pushItem;
     private InteractiveObject _interactingItem;
 
     private int _controllerNumber = 0;
+
+    public InteractiveObject InteractingItem
+    {
+        get
+        {
+            return _interactingItem;
+        }
+
+        set
+        {
+            _interactingItem = value;
+        }
+    }
 
     private void Start ()
     {
@@ -27,6 +42,7 @@ public class PlayerController : MonoBehaviour
         _interactionTrigger = GetComponentInChildren<PlayerPickupTrigger>();
         _pickedUpItemSlot = transform.Find("PickupItemSlot");
         _pushItemSlot = transform.Find("PushItemSlot");
+        _currentTurnRate = _baseTurnRate;
     }
 
     private void Update()
@@ -39,6 +55,11 @@ public class PlayerController : MonoBehaviour
         if (_pickedUpItem != null)
         {
             _pickedUpItem.transform.position = _pickedUpItemSlot.position;
+        }
+        else if (_pushItem != null)
+        {
+            _pushItem.transform.position = _pushItemSlot.position;
+            _pushItem.transform.forward = gameObject.transform.forward;
         }
     }
 
@@ -54,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Pickup_P" + _controllerNumber))
         {
-            PickupItem();
+            PickupOrPushItem();
         }
         else if (Input.GetButtonDown("Interact_P" + _controllerNumber))
         {
@@ -69,7 +90,7 @@ public class PlayerController : MonoBehaviour
     private void MoveCharacter(float horizontal, float vertical)
     {
         Vector3 movement = CalculateMoveDirection(horizontal, vertical);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), _baseTurnRate);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), _currentTurnRate);
         //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (movement * 10), Color.green);
         //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (-movement * 10), Color.green);
         _rigidbody.AddForce(movement * _speed);
@@ -108,28 +129,47 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PickupItem()
+    private void PickupOrPushItem()
     {
-        if (_pickedUpItem == null)
+        if (_pickedUpItem == null && _pushItem == null)
         {
-            bool pickedUp = false;
             if (_interactionTrigger.PickupObjectsAvailable.Count > 0)
             {
                 //TODO depends on whcih item is closest to the centre of the trigger
                 _pickedUpItem = _interactionTrigger.PickupObjectsAvailable[0];
-                pickedUp = true;
+            }
+            else if (_interactionTrigger.PushObjectsAvailable.Count > 0)
+            {
+                _pushItem = _interactionTrigger.PushObjectsAvailable[0];
             }
 
-            if (pickedUp && _pickedUpItem != null)
+            if (_pickedUpItem != null)
             {
                 _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 //TODO set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you're picking up
-                _pickedUpItem.transform.position = _pickedUpItemSlot.position;
+                //_pickedUpItemSlot.position = gameObject.transform.position + new Vector3(0, (_pickedUpItem.GetComponent<Collider>().bounds.size.y * 1.1f) + 0.5f, 0);
+                _pickedUpItem.transform.SetParent(gameObject.transform);
+                _pickedUpItem.OnPickedUp(this);
+            }
+            else if (_pushItem != null)
+            {
+                _pushItem.transform.position += new Vector3(0,0.15f,0);
+                _pushItemSlot.position = _pushItem.transform.position + (gameObject.transform.forward * 1);
+                var rb = _pushItem.gameObject.GetComponent<Rigidbody>();
+                rb.isKinematic = true;
+                _currentTurnRate -= (rb.mass / 5); // TODO MAKE ALL THIS WORK
             }
         }
         else
         {
-            ReleaseItem();
+            if (_pickedUpItem != null)
+            {
+                ReleasePickedUpItem();
+            }
+            else
+            {
+                ReleasePushedItem();
+            }
         }
     }
 
@@ -137,18 +177,27 @@ public class PlayerController : MonoBehaviour
     {
         if (_pickedUpItem != null)
         {
-            ReleaseItem(transform.forward);
+            ReleasePickedUpItem(transform.forward);
         }
     }
 
-    private void ReleaseItem(Vector3 forceDirection = new Vector3())
+    private void ReleasePickedUpItem(Vector3 forceDirection = new Vector3())
     {
+        _pickedUpItem.transform.SetParent(null);
         _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         if (forceDirection != default(Vector3))
         {
             _pickedUpItem.gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * (_intitialThrowStrength * _strength) + (GetComponent<Rigidbody>().velocity * 20)); // TODO variable throw based on strength
         }
+        _pickedUpItem.OnDropped(this);
         _pickedUpItem = null;
+    }
+
+    private void ReleasePushedItem()
+    {
+        _pushItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        _pushItem = null;
+        _currentTurnRate = _baseTurnRate;
     }
 
     private void InteractItem()
@@ -159,8 +208,13 @@ public class PlayerController : MonoBehaviour
             var objectToInteract = (InteractiveObject)_interactionTrigger.InteractiveObjectsAvailable[0];
             if (objectToInteract.MeetsInteractionRequirements(_pickedUpItem))
             {
+                var item = _pickedUpItem;
+                if (objectToInteract.ConsumesObjectOnUse && item != null)
+                {
+                    ReleasePickedUpItem();
+                }
                 _interactingItem = objectToInteract;
-                objectToInteract.InteractedWith(true, _pickedUpItem);
+                objectToInteract.InteractedWith(true, item);
             }
         }
     }

@@ -12,6 +12,14 @@ public class InteractiveObject : ObjectProperties
 
     public bool BeingInteractedWith { get; set; }
 
+    public bool ConsumesObjectOnUse
+    {
+        get
+        {
+            return _consumesObjectOnUse;
+        }
+    }
+
     public virtual void InteractedWith(bool interacting, ObjectProperties heldObject)
     {
         BeingInteractedWith = interacting;

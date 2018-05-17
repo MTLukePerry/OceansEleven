@@ -275,8 +275,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: -0.2, z: 1}
 --- !u!114 &114101678194789402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fakeMass: 0.5
-  _canPickup: 0
+  _canPickup: 1
   _canPush: 0
 --- !u!114 &114471303767128000
 MonoBehaviour:

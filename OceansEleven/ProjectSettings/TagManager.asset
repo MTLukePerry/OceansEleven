@@ -7,7 +7,7 @@ TagManager:
   - ObectedWeighted
   - ObjectNoMass
   - Indestructible
-  - ObjectWeighted
+  - Boat
   layers:
   - Default
   - TransparentFX
