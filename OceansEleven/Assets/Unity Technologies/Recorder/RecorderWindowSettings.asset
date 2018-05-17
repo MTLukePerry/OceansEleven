@@ -11,7 +11,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0205cb8957891b44b142689caa23987, type: 3}
   m_Name: RecorderWindowSettings
   m_EditorClassIdentifier: 
-  m_Settings: {fileID: 0}
+  m_Settings: {fileID: 114212499138518966}
+--- !u!114 &114065731018496364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d935bf7a4fcf66488738bda5536c1cb, type: 3}
+  m_Name: 6e191cbc-2dfb-4a01-9c42-02806131fe80
+  m_EditorClassIdentifier: 
+  m_DisplayName: Pixels
+  m_Id: 031b33c9-a2b1-4ebf-b3a9-f002f4673c6e
+  m_OutputSize: 0
+  m_AspectRatio: 0
+  m_ForceEvenSize: 1
+  source: 1
+  m_CameraTag: 
+  m_FlipFinalOutput: 0
+  m_AllowTransparency: 0
+  m_CaptureUI: 0
+--- !u!114 &114212499138518966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fde0a8ac3e6b482c95fa602e65ab045, type: 3}
+  m_Name: Recorder Settings
+  m_EditorClassIdentifier: 
+  m_AssetID: d24ae7fd9da6047f39fec6f53510933b
+  m_CaptureEveryNthFrame: 1
+  m_FrameRateMode: 1
+  m_FrameRate: 30
+  m_FrameRateExact: 64
+  m_StartFrame: 0
+  m_EndFrame: 10
+  m_StartTime: 0
+  m_EndTime: 1
+  m_DurationMode: 0
+  m_SynchFrameRate: 1
+  m_BaseFileName:
+    m_Pattern: movie.<ext>
+  m_DestinationPath:
+    m_root: 1
+    m_leaf: Recordings
+  m_InputsSettings:
+    m_InputsSettingsAssets:
+    - {fileID: 114065731018496364}
+    - {fileID: 114839902762286372}
+    ownerRecorderSettingsAssetId: d24ae7fd9da6047f39fec6f53510933b
+  m_RecorderTypeName: UnityEditor.Recorder.MediaRecorder, Assembly-CSharp-Editor,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_OutputFormat: 0
+  m_VideoBitRateMode: 2
+  m_AppendSuffix: 0
 --- !u!114 &114332831741511800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,4 +141,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Audio
   m_Id: a380e9b9-c825-4326-95ea-8809540ddd76
+  m_PreserveAudio: 1
+--- !u!114 &114839902762286372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae41d0797227451ea4b10db1c086647, type: 3}
+  m_Name: d8d5fe15-8ef1-4e16-bd2f-299ad951373f
+  m_EditorClassIdentifier: 
+  m_DisplayName: Audio
+  m_Id: 152cc8ce-c93c-43e8-9e13-6b5a4d95e446
   m_PreserveAudio: 1

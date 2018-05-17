@@ -260,6 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
+  _strength: 1
+  _intitialThrowStrength: 500
 --- !u!114 &114418030576043924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +293,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999779218485198}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f200e0fc36a7dcb48bcff63db6c5124c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5

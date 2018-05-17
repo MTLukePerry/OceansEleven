@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private PlayerPickupTrigger _pickupTrigger;
-    private ObjectProperties _pickedUpItem;
     private Transform _pickedUpItemSlot;
+
+    private ObjectProperties _pickedUpItem;
+    private InteractiveObject _interactingItem;
 
     private int _controllerNumber = 0;
 
@@ -45,12 +47,15 @@ public class PlayerController : MonoBehaviour
             MoveCharacter(horizontal, vertical);
         }
 
-        if (Input.GetButtonDown("Interact_P" + _controllerNumber))
+        if (Input.GetButtonDown("Pickup_P" + _controllerNumber))
         {
             PickupItem();
         }
-
-        if (Input.GetAxis("Trigger_P" + _controllerNumber) < 0)
+        else if (Input.GetButtonDown("Interact_P" + _controllerNumber))
+        {
+            InteractItem();
+        }
+        else if (Input.GetAxis("Trigger_P" + _controllerNumber) < 0)
         {
             ThrowItem();
         }
@@ -103,17 +108,17 @@ public class PlayerController : MonoBehaviour
         if (_pickedUpItem == null)
         {
             bool pickedUp = false;
-            if (_pickupTrigger.ObjectsAvailable.Count > 0)
+            if (_pickupTrigger.PickupObjectsAvailable.Count > 0)
             {
                 //TODO depends on whcih item is closest to the centre of the trigger
-                _pickedUpItem = _pickupTrigger.ObjectsAvailable[0];
+                _pickedUpItem = _pickupTrigger.PickupObjectsAvailable[0];
                 pickedUp = true;
             }
 
             if (pickedUp && _pickedUpItem != null)
             {
                 _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                //todo set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you'repicking up
+                //todo set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you're picking up
                 _pickedUpItem.transform.position = _pickedUpItemSlot.position;
             }
         }
@@ -139,5 +144,19 @@ public class PlayerController : MonoBehaviour
             _pickedUpItem.gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * (_intitialThrowStrength * _strength) + (GetComponent<Rigidbody>().velocity * 20)); // TODO variable throw based on strength
         }
         _pickedUpItem = null;
+    }
+
+    private void InteractItem()
+    {
+        if (_pickupTrigger.InteractiveObjectsAvailable.Count > 0)
+        {
+            //TODO depends on whcih item is closest to the player
+            var objectToInteract = (InteractiveObject)_pickupTrigger.InteractiveObjectsAvailable[0];
+            if (objectToInteract.MeetsInteractionRequirements(_pickedUpItem))
+            {
+                _interactingItem = objectToInteract;
+                objectToInteract.InteractedWith(true);
+            }
+        }
     }
 }
