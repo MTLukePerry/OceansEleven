@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: a74820d4875c245d6b7bab2bbeb6de07
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Mesh
+    100002: Oil_drum:Group12113
+    100004: Oil_drum:Group17989
+    100006: Oil_drum:Group17991
+    100008: Oil_drum:Group22676
+    100010: Oil_drum:Group22677
+    100012: Oil_drum:Group22678
+    100014: Oil_drum:Group22679
+    100016: Oil_drum:Group29545
+    100018: Oil_drum:Group29546
+    100020: Oil_drum:Group29548
+    100022: Oil_drum:Group29549
+    100024: Oil_drum:Group41840
+    100026: //RootNode
+    400000: Mesh
+    400002: Oil_drum:Group12113
+    400004: Oil_drum:Group17989
+    400006: Oil_drum:Group17991
+    400008: Oil_drum:Group22676
+    400010: Oil_drum:Group22677
+    400012: Oil_drum:Group22678
+    400014: Oil_drum:Group22679
+    400016: Oil_drum:Group29545
+    400018: Oil_drum:Group29546
+    400020: Oil_drum:Group29548
+    400022: Oil_drum:Group29549
+    400024: Oil_drum:Group41840
+    400026: //RootNode
+    2100000: lambert1
+    2300000: Oil_drum:Group12113
+    2300002: Oil_drum:Group17989
+    2300004: Oil_drum:Group17991
+    2300006: Oil_drum:Group22676
+    2300008: Oil_drum:Group22677
+    2300010: Oil_drum:Group22678
+    2300012: Oil_drum:Group22679
+    2300014: Oil_drum:Group29545
+    2300016: Oil_drum:Group29546
+    2300018: Oil_drum:Group29548
+    2300020: Oil_drum:Group29549
+    2300022: Oil_drum:Group41840
+    3300000: Oil_drum:Group12113
+    3300002: Oil_drum:Group17989
+    3300004: Oil_drum:Group17991
+    3300006: Oil_drum:Group22676
+    3300008: Oil_drum:Group22677
+    3300010: Oil_drum:Group22678
+    3300012: Oil_drum:Group22679
+    3300014: Oil_drum:Group29545
+    3300016: Oil_drum:Group29546
+    3300018: Oil_drum:Group29548
+    3300020: Oil_drum:Group29549
+    3300022: Oil_drum:Group41840
+    4300000: Oil_drum:Group22676
+    4300002: Oil_drum:Group12113
+    4300004: Oil_drum:Group22677
+    4300006: Oil_drum:Group22678
+    4300008: Oil_drum:Group22679
+    4300010: Oil_drum:Group29545
+    4300012: Oil_drum:Group29546
+    4300014: Oil_drum:Group17989
+    4300016: Oil_drum:Group29548
+    4300018: Oil_drum:Group29549
+    4300020: Oil_drum:Group17991
+    4300022: Oil_drum:Group41840
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
