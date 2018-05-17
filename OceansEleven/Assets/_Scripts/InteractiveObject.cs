@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class InteractiveObject : ObjectProperties
 {
+    [SerializeField] private bool _anyObjectForInteraction = false;
     [SerializeField] private ToolType _toolRequiredForInteraction = ToolType.None;
     [SerializeField] private Liquid _LiquidRequired = Liquid.None;
 
+    [SerializeField] private bool _consumesObjectOnUse = false;
+
     public bool BeingInteractedWith { get; set; }
 
-    public virtual void InteractedWith(bool interacting)
+    public virtual void InteractedWith(bool interacting, ObjectProperties heldObject)
     {
         BeingInteractedWith = interacting;
     }
 
     public bool MeetsInteractionRequirements(ObjectProperties heldObject)
     {
+        if (_anyObjectForInteraction && heldObject == null)
+        {
+            return false;
+        }
+
         bool checkTool = _toolRequiredForInteraction != ToolType.None;
         bool checkLiquid = _LiquidRequired != Liquid.None;
 

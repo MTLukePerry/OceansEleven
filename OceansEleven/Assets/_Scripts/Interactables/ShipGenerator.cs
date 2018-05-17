@@ -32,9 +32,9 @@ public class ShipGenerator : InteractiveObject
         }
     }
 
-    public override void InteractedWith(bool interacting)
+    public override void InteractedWith(bool interacting, ObjectProperties heldObject)
     {
-        base.InteractedWith(interacting);
+        base.InteractedWith(interacting, heldObject);
 
         _fueling = interacting;
     }

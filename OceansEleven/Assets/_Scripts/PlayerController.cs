@@ -8,9 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _strength = 1;
     [SerializeField] private float _intitialThrowStrength = 500;
 
+    [SerializeField] private float _baseTurnRate = 0.15f;
+
     private Rigidbody _rigidbody;
-    private PlayerPickupTrigger _pickupTrigger;
+    private PlayerPickupTrigger _interactionTrigger;
     private Transform _pickedUpItemSlot;
+
+    private Transform _pushItemSlot;
 
     private ObjectProperties _pickedUpItem;
     private InteractiveObject _interactingItem;
@@ -20,8 +24,9 @@ public class PlayerController : MonoBehaviour
     private void Start ()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _pickupTrigger = GetComponentInChildren<PlayerPickupTrigger>();
+        _interactionTrigger = GetComponentInChildren<PlayerPickupTrigger>();
         _pickedUpItemSlot = transform.Find("PickupItemSlot");
+        _pushItemSlot = transform.Find("PushItemSlot");
     }
 
     private void Update()
@@ -64,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private void MoveCharacter(float horizontal, float vertical)
     {
         Vector3 movement = CalculateMoveDirection(horizontal, vertical);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), _baseTurnRate);
         //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (movement * 10), Color.green);
         //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (-movement * 10), Color.green);
         _rigidbody.AddForce(movement * _speed);
@@ -81,7 +86,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
         {
-            //TODO - make the force direction parallel to ship floor for smoother movement
+            //TODO - make the force direction parallel to ship floor for smoother movement - VERY LOW PRIORITY may not even want
 
             //Vector3 moveThisWay = new Vector3(hit.point.x, hit.point.y + transform.lossyScale.y, hit.point.z);
             //var difference = Vector3.up - hit.normal;
@@ -108,17 +113,17 @@ public class PlayerController : MonoBehaviour
         if (_pickedUpItem == null)
         {
             bool pickedUp = false;
-            if (_pickupTrigger.PickupObjectsAvailable.Count > 0)
+            if (_interactionTrigger.PickupObjectsAvailable.Count > 0)
             {
                 //TODO depends on whcih item is closest to the centre of the trigger
-                _pickedUpItem = _pickupTrigger.PickupObjectsAvailable[0];
+                _pickedUpItem = _interactionTrigger.PickupObjectsAvailable[0];
                 pickedUp = true;
             }
 
             if (pickedUp && _pickedUpItem != null)
             {
                 _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                //todo set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you're picking up
+                //TODO set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you're picking up
                 _pickedUpItem.transform.position = _pickedUpItemSlot.position;
             }
         }
@@ -148,14 +153,14 @@ public class PlayerController : MonoBehaviour
 
     private void InteractItem()
     {
-        if (_pickupTrigger.InteractiveObjectsAvailable.Count > 0)
+        if (_interactionTrigger.InteractiveObjectsAvailable.Count > 0)
         {
-            //TODO depends on whcih item is closest to the player
-            var objectToInteract = (InteractiveObject)_pickupTrigger.InteractiveObjectsAvailable[0];
+            //TODO depends on which item is closest to the player
+            var objectToInteract = (InteractiveObject)_interactionTrigger.InteractiveObjectsAvailable[0];
             if (objectToInteract.MeetsInteractionRequirements(_pickedUpItem))
             {
                 _interactingItem = objectToInteract;
-                objectToInteract.InteractedWith(true);
+                objectToInteract.InteractedWith(true, _pickedUpItem);
             }
         }
     }
