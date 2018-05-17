@@ -11,6 +11,7 @@ ModelImporter:
     2300000: Group19171
     3300000: Group19171
     4300000: Group19171
+    6400000: Group19171
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -45,13 +46,13 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
