@@ -54,12 +54,27 @@ GameObject:
   m_Component:
   - component: {fileID: 4675462405021984}
   - component: {fileID: 54531131604132234}
-  - component: {fileID: 114282049723073946}
   - component: {fileID: 65754928817500370}
+  - component: {fileID: 114834694502350746}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1855303116339086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4756534254371936}
+  m_Layer: 0
+  m_Name: FirePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -113,14 +128,28 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326878371964240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.94, y: 0.33, z: 3.96}
+  m_LocalPosition: {x: -1.250989, y: 0.3210001, z: 4.274538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4185135040741432}
   - {fileID: 4015249696998168}
   - {fileID: 4758208458081772}
+  - {fileID: 4756534254371936}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4756534254371936
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1855303116339086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.62, z: 1.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4675462405021984}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4758208458081772
 Transform:
@@ -288,7 +317,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1.8}
   m_Center: {x: 0, y: -0.175, z: 0}
---- !u!114 &114282049723073946
+--- !u!114 &114834694502350746
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -296,13 +325,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326878371964240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b9fb15b1ff9a0345abd7044ee6fa282, type: 3}
+  m_Script: {fileID: 11500000, guid: b66c0046586044a42b4802322b641566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _fakeMass: 1
-  _canPickup: 1
-  _canPush: 0
-  _anyObjectForInteraction: 1
+  _canPickup: 0
+  _canPush: 1
+  _anyObjectForInteraction: 0
   _toolRequiredForInteraction: 0
   _LiquidRequired: 0
   _consumesObjectOnUse: 1
+  _firePosition: {fileID: 4756534254371936}
+  _additionalUpAngle: 0.1
+  _cannonFirePower: 100
+  _ammoLimit: 2
+  _litSecondsUntilFire: 1
