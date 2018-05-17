@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             MoveCharacter(horizontal, vertical);
         }
 
-        if (Input.GetButtonDown("Interact_P" + _controllerNumber)) // TODO
+        if (Input.GetButtonDown("Interact_P" + _controllerNumber))
         {
             PickupItem();
         }
