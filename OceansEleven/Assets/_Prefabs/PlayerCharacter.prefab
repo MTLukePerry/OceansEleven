@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4775423867134744}
   - component: {fileID: 65540772386422524}
   - component: {fileID: 114471303767128000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickupTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4254844487273164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PushItemSlot
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4617535659528684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickupItemSlot
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 33451091964419566}
   - component: {fileID: 23382792290986080}
   - component: {fileID: 136285440136678184}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,9 +90,9 @@ GameObject:
   - component: {fileID: 114101678194789402}
   - component: {fileID: 114418030576043924}
   - component: {fileID: 136066119188731202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
