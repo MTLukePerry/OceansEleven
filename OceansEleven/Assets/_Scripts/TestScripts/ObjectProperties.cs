@@ -8,6 +8,8 @@ public class ObjectProperties : MonoBehaviour
     public bool _canPickup;
     public bool _canPush;
 
+    public bool IsPickedUp { get; set; }
+
     private void Start ()
     {
         if (_canPickup)
@@ -17,4 +19,13 @@ public class ObjectProperties : MonoBehaviour
         //todo set mass to equal fake mass?
     }
 
+    public virtual void OnPickedUp (PlayerController player)
+    {
+        IsPickedUp = true;
+    }
+
+    public virtual void OnDropped (PlayerController player)
+    {
+        IsPickedUp = false;
+    }
 }

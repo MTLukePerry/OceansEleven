@@ -147,6 +147,9 @@ public class PlayerController : MonoBehaviour
             {
                 _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 //TODO set _pickedUpItemSlot position high enough that it can carry any item variable on the size of the thing you're picking up
+                //_pickedUpItemSlot.position = gameObject.transform.position + new Vector3(0, (_pickedUpItem.GetComponent<Collider>().bounds.size.y * 1.1f) + 0.5f, 0);
+                _pickedUpItem.transform.SetParent(gameObject.transform);
+                _pickedUpItem.OnPickedUp(this);
             }
             else if (_pushItem != null)
             {
@@ -180,11 +183,13 @@ public class PlayerController : MonoBehaviour
 
     private void ReleasePickedUpItem(Vector3 forceDirection = new Vector3())
     {
+        _pickedUpItem.transform.SetParent(null);
         _pickedUpItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         if (forceDirection != default(Vector3))
         {
             _pickedUpItem.gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * (_intitialThrowStrength * _strength) + (GetComponent<Rigidbody>().velocity * 20)); // TODO variable throw based on strength
         }
+        _pickedUpItem.OnDropped(this);
         _pickedUpItem = null;
     }
 
@@ -203,12 +208,13 @@ public class PlayerController : MonoBehaviour
             var objectToInteract = (InteractiveObject)_interactionTrigger.InteractiveObjectsAvailable[0];
             if (objectToInteract.MeetsInteractionRequirements(_pickedUpItem))
             {
-                _interactingItem = objectToInteract;
-                objectToInteract.InteractedWith(true, _pickedUpItem);
-                if (objectToInteract.ConsumesObjectOnUse)
+                var item = _pickedUpItem;
+                if (objectToInteract.ConsumesObjectOnUse && item != null)
                 {
-                    _pickedUpItem = null;
+                    ReleasePickedUpItem();
                 }
+                _interactingItem = objectToInteract;
+                objectToInteract.InteractedWith(true, item);
             }
         }
     }

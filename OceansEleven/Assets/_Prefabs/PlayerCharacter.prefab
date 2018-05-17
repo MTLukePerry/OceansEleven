@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fakeMass: 0.5
-  _canPickup: 0
+  _canPickup: 1
   _canPush: 0
 --- !u!114 &114471303767128000
 MonoBehaviour:
