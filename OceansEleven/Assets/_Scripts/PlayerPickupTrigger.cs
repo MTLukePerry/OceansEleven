@@ -7,22 +7,38 @@ public class PlayerPickupTrigger : MonoBehaviour
 {
     public Action _triggerCallback;
 
-    private List<ObjectProperties> _objectsAvailable = new List<ObjectProperties>();
+    private List<ObjectProperties> _pickupObjectsAvailable = new List<ObjectProperties>();
+    private List<ObjectProperties> _interactiveObjectsAvailable = new List<ObjectProperties>();
 
-    public List<ObjectProperties> ObjectsAvailable
+    public List<ObjectProperties> PickupObjectsAvailable
     {
         get
         {
-            return _objectsAvailable;
+            return _pickupObjectsAvailable;
+        }
+    }
+
+    public List<ObjectProperties> InteractiveObjectsAvailable
+    {
+        get
+        {
+            return _interactiveObjectsAvailable;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         var objProperties = other.gameObject.GetComponent<ObjectProperties>();
-        if (objProperties != null && objProperties._canPickup)
+        if (objProperties != null)
         {
-            _objectsAvailable.Add(objProperties);
+            if (objProperties._canPickup)
+            {
+                _pickupObjectsAvailable.Add(objProperties);
+            }
+            else if (objProperties is InteractiveObject)
+            {
+                _interactiveObjectsAvailable.Add(objProperties);
+            }
         }
 
         if (_triggerCallback != null)
@@ -34,9 +50,22 @@ public class PlayerPickupTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         var objProperties = other.gameObject.GetComponent<ObjectProperties>();
-        if (objProperties != null && _objectsAvailable.Contains(objProperties))
+        if (objProperties != null)
         {
-            _objectsAvailable.Remove(objProperties);
+            if (_pickupObjectsAvailable.Contains(objProperties))
+            {
+                _pickupObjectsAvailable.Remove(objProperties);
+            }
+
+            if (_interactiveObjectsAvailable.Contains(objProperties))
+            {
+                var interaction = (InteractiveObject)objProperties;
+                if (interaction.BeingInteractedWith)
+                {
+                    interaction.InteractedWith(false);
+                }
+                _interactiveObjectsAvailable.Remove(objProperties);
+            }
         }
     }
 }
