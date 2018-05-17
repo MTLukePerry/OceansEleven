@@ -12,6 +12,8 @@ public class GameModeManager : MonoBehaviour
     [SerializeField] private float _fullProgressBoundary = 0.4f;
     [SerializeField] private float _twoThirdsProgressBoundary = 0.15f;
 
+    [SerializeField] private SimpleRotate _paddleWheelSpeed;
+
     private float _boatProgress = 0;
 
     private void Awake ()
@@ -35,14 +37,17 @@ public class GameModeManager : MonoBehaviour
         if (fuelPercentage >= _fullProgressBoundary)
         {
             addedProgression += _fullSpeedProgress;
+            _paddleWheelSpeed.rotationTime = 2.0f;
         }
         else if (fuelPercentage >= _twoThirdsProgressBoundary)
         {
             addedProgression += (_fullSpeedProgress * 0.66f);
+            _paddleWheelSpeed.rotationTime = 5.0f;
         }
         else if (fuelPercentage > 0)
         {
             addedProgression += (_fullSpeedProgress * 0.33f);
+            _paddleWheelSpeed.rotationTime = 30.0f;
         }
         _boatProgress += addedProgression;
         UpdateBoatPosition(_boatProgress);

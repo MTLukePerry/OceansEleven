@@ -30,7 +30,10 @@ public class SpringTestMain : MonoBehaviour {
         {
             if (_triggerMass[i]._totalWeight <= _maxSpringDist)
             {
-                _springJoints[i].maxDistance = _triggerMass[i]._totalWeight;
+                _springJoints[i].minDistance = _triggerMass[i]._totalWeight;
+            } else if (_triggerMass[i]._totalWeight > _maxSpringDist)
+            {
+                _springJoints[i].minDistance = _maxSpringDist;
             }
         }
     }
