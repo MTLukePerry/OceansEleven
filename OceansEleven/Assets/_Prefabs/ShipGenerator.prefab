@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23529461065487840}
   m_Layer: 0
   m_Name: diesel_generator
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23322577818190996}
   m_Layer: 0
   m_Name: pipe3
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23332299123579288}
   m_Layer: 0
   m_Name: pipe2
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114741639795178764}
   m_Layer: 0
   m_Name: ShipGenerator
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,8 +302,10 @@ MonoBehaviour:
   _fakeMass: 1
   _canPickup: 0
   _canPush: 0
+  _anyObjectForInteraction: 0
   _toolRequiredForInteraction: 0
   _LiquidRequired: 2
+  _consumesObjectOnUse: 0
   _uiSlider: {fileID: 0}
   _fillRate: 0.035
   _decayRate: 0.015
