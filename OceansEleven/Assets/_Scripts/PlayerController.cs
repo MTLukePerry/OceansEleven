@@ -205,7 +205,10 @@ public class PlayerController : MonoBehaviour
             {
                 _interactingItem = objectToInteract;
                 objectToInteract.InteractedWith(true, _pickedUpItem);
-                _pickedUpItem = null;
+                if (objectToInteract.ConsumesObjectOnUse)
+                {
+                    _pickedUpItem = null;
+                }
             }
         }
     }

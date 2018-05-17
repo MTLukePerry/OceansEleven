@@ -10,8 +10,15 @@ public class ShipGenerator : InteractiveObject
     [SerializeField] private float _fillRate = 0.035f;
     [SerializeField] private float _decayRate = 0.015f;
 
+    private GameModeManager manager = null;
+
     private float _currentFuel = 50;
     private bool _fueling = false;
+
+    private void Start()
+    {
+        manager = SingletonManager.GetInstance<GameModeManager>();
+    }
 
     private void Update()
     {
@@ -25,11 +32,13 @@ public class ShipGenerator : InteractiveObject
         }
         _currentFuel = Mathf.Clamp(_currentFuel, 0, 100);
 
+        var normalFuel = _currentFuel / 100;
         if (_uiSlider != null)
         {
-            var normalFuel = _currentFuel / 100;
             _uiSlider.fillAmount = Mathf.Clamp(normalFuel, 0, 1);
         }
+
+        manager.UpdateBoatProgress(normalFuel);
     }
 
     public override void InteractedWith(bool interacting, ObjectProperties heldObject)

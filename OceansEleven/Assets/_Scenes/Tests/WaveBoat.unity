@@ -194,6 +194,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114834694502350746, guid: ab56057d5b0a829448cd9688b1b2a515,
+        type: 2}
+      propertyPath: _canPush
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab56057d5b0a829448cd9688b1b2a515, type: 2}
   m_IsPrefabParent: 0
@@ -467,6 +472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f587585a4523145884a4bd2d9aced4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boatObjectiveSlider: {fileID: 1332219881}
+  _fullSpeedProgress: 0.00005
+  _fullProgressBoundary: 0.4
+  _twoThirdsProgressBoundary: 0.15
 --- !u!114 &371154106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3781,6 +3790,10 @@ Prefab:
     - target: {fileID: 4311273030714058, guid: df77bc18a1203f34c89d38715a110e7c, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168941286550436, guid: df77bc18a1203f34c89d38715a110e7c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1999779218485198, guid: df77bc18a1203f34c89d38715a110e7c, type: 2}
       propertyPath: m_IsActive
