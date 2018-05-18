@@ -724,8 +724,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fakeMass: 0
   _canPickup: 1
-  _canPush: 1
-  _toolClassification: 0
+  _canPush: 0
+  _toolClassification: 2
   _consumedOnCorrectInteraction: 0
   _canFill: 1
   _containingLiquid: 2
