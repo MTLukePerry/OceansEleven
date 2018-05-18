@@ -8,6 +8,9 @@ public class TitleScreenController : MonoBehaviour {
     [SerializeField] private GameObject _ui;
     [SerializeField] private GameObject _flag;
 
+    [SerializeField] private GameObject _stormGO;
+    private bool isWindy = false;
+
 
     private void Start()
     {
@@ -23,5 +26,14 @@ public class TitleScreenController : MonoBehaviour {
             _flag.SetActive(false);
             _ui.SetActive(true);
         } 
+        if (Input.GetKeyUp(KeyCode.S)){
+            if (!isWindy)
+            {
+                _stormGO.GetComponent<Animator>().SetTrigger("startStorm");
+                isWindy = true;
+            } else {
+                _stormGO.GetComponent<Animator>().SetTrigger("endStorm"); 
+            }
+        }
 	}
 }
