@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Animator))]
 public class Cannon : InteractiveObject
 {
     [SerializeField] private Transform _firePosition;
@@ -14,8 +15,14 @@ public class Cannon : InteractiveObject
     private List<ObjectProperties> _ammo = new List<ObjectProperties>();
 
     [SerializeField] private float _litSecondsUntilFire = 1;
+    private Animator _anim;
 
     private bool _firingCannon = false;
+
+    private void Start()
+    {
+        _anim = GetComponent<Animator>();
+    }
 
     public override void InteractedWith(bool interacting, ObjectProperties heldObject)
     {
@@ -52,6 +59,7 @@ public class Cannon : InteractiveObject
             rb.isKinematic = false;
             var normalizedFireRotation = Vector3.Normalize(gameObject.transform.forward + new Vector3(0, _additionalUpAngle, 0));
             rb.AddForce(normalizedFireRotation * _cannonFirePower * (rb.mass * 10));
+            _anim.SetTrigger("FireCannon");
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
             yield return new WaitForSeconds(0.1f);
