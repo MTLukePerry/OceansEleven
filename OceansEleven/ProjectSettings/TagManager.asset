@@ -10,6 +10,7 @@ TagManager:
   - Boat
   - ObjectWeighted
   - Fire
+  - Net
   layers:
   - Default
   - TransparentFX
