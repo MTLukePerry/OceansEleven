@@ -85,6 +85,6 @@ public class GameModeManager : MonoBehaviour
     private IEnumerator LoadFirstScene(int secondsWait)
     {
         yield return new WaitForSeconds(secondsWait);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
