@@ -9,6 +9,7 @@ TagManager:
   - Indestructible
   - Boat
   - ObjectWeighted
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - CollideWithAll
   - Triggers
   - Cull
-  - 
+  - VFX
   - 
   - 
   - 
