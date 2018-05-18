@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1082483996}
-  m_IndirectSpecularColor: {r: 0.07113592, g: 0.3566342, b: 0.97829956, a: 1}
+  m_IndirectSpecularColor: {r: 0.07112981, g: 0.35672963, b: 0.9790591, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -475,7 +475,6 @@ MonoBehaviour:
   _title: {fileID: 506889458}
   _ui: {fileID: 506889459}
   _flag: {fileID: 1482827142}
-  _stormGO: {fileID: 1344544100}
 --- !u!1001 &376178795
 Prefab:
   m_ObjectHideFlags: 0
@@ -1586,14 +1585,13 @@ Prefab:
       propertyPath: weight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1324983145095452, guid: 87133fccabc6c4722ac2a891a86fc19f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87133fccabc6c4722ac2a891a86fc19f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1344544100 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1456668108840982, guid: 87133fccabc6c4722ac2a891a86fc19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1344544099}
 --- !u!4 &1380650571 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4431686458165988, guid: 7079c3550c673c644b7618ede1ad6c53,
