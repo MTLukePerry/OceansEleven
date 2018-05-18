@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1344169009788568
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba01a77db5b146d386653f0d4eaf694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainLight: {fileID: 0}
+  waves: {fileID: 0}
 --- !u!114 &114473391390749412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,7 +397,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 232a77b67daad4b03a588a04887561b6, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 1
+  weight: 0
   priority: 1
 --- !u!198 &198127285655771152
 ParticleSystem:
