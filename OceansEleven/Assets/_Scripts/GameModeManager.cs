@@ -69,6 +69,7 @@ public class GameModeManager : MonoBehaviour
 
     private void StartWinFlow()
     {
-        Debug.Log("YOU'VE WON THE DAMN GAME");
+        SingletonManager.GetInstance<ScoreManager>().InitiateEndOfGame();
+        Debug.Log("You've finished the game! Congrats!");
     }
 }

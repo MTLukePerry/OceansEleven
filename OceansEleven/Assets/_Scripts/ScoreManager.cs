@@ -7,13 +7,27 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
 
-    private int score = 0;
+    private int _score = 0;
+    private bool _updateScore = true;
 
     public int Score
     {
         get
         {
-            return score;
+            return _score;
+        }
+    }
+
+    public bool UpdateScore
+    {
+        get
+        {
+            return _updateScore;
+        }
+
+        set
+        {
+            _updateScore = value;
         }
     }
 
@@ -27,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         var scoreObj = other.gameObject.GetComponent<ScoreObject>();
         if (scoreObj != null)
         {
-            score += scoreObj.ScoreWorth;
+            _score += scoreObj.ScoreWorth;
             UpdateScoreText();
         }
     }
@@ -37,13 +51,22 @@ public class ScoreManager : MonoBehaviour
         var scoreObj = other.gameObject.GetComponent<ScoreObject>();
         if (scoreObj != null)
         {
-            score -= scoreObj.ScoreWorth;
+            _score -= scoreObj.ScoreWorth;
             UpdateScoreText();
         }
     }
 
     private void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
+        if (_updateScore)
+        {
+            scoreText.text = "Score: " + _score;
+        }
+    }
+
+    public void InitiateEndOfGame()
+    {
+        _updateScore = false;
+        scoreText.text = "Final Score: " + _score;
     }
 }

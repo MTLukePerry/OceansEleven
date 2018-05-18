@@ -8503,7 +8503,7 @@ GameObject:
   - component: {fileID: 114704131572693226}
   m_Layer: 9
   m_Name: NetSpawner
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36145,7 +36145,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!54 &54231632339250996
 Rigidbody:
@@ -36910,6 +36910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ecaf3c5a0ad43a1022d16afd73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forcedYBias: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114873014630353242
 MonoBehaviour:
@@ -36922,6 +36923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ecaf3c5a0ad43a1022d16afd73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forcedYBias: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114873940836343596
 MonoBehaviour:
@@ -36934,6 +36936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ecaf3c5a0ad43a1022d16afd73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forcedYBias: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114935084550845006
 MonoBehaviour:
@@ -36957,6 +36960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ecaf3c5a0ad43a1022d16afd73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forcedYBias: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114970475641096760
 MonoBehaviour:

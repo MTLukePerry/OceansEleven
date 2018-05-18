@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RideTheWave : MonoBehaviour
 {
+    [SerializeField] private float forcedYBias = 1;
+
     private float _initialHeight;
     private float _intialWaterHeight;
 
@@ -14,7 +16,7 @@ public class RideTheWave : MonoBehaviour
         _initialHeight = transform.position.y;
         RaycastHit hit;
         Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Water"));
-        _intialWaterHeight = hit.point.y;
+        _intialWaterHeight = hit.point.y - forcedYBias;
     }
 
     private void LateUpdate ()
