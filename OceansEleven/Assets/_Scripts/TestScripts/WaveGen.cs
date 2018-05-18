@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WaveGen : MonoBehaviour
 {
-    [SerializeField] private float _scale = 0.1f;
+     public float _scale = 0.1f;
     [SerializeField] private float _speed = 1.0f;
     [SerializeField] private float _noiseStrength = 1f;
     [SerializeField] private float _noiseWalk = 1f;
