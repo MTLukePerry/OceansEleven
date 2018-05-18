@@ -9,7 +9,14 @@ public class TitleScreenController : MonoBehaviour {
     [SerializeField] private GameObject _flag;
 
 
-	void Update () {
+    private void Start()
+    {
+        _title.SetActive(true);
+        _flag.SetActive(true);
+        _ui.SetActive(false);
+    }
+
+    void Update () {
         if (Input.anyKeyDown){
 
             _title.SetActive(false);
