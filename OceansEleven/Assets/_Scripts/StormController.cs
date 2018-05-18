@@ -30,6 +30,7 @@ public class StormController : MonoBehaviour {
             this.GetComponent<Animator>().SetTrigger("startStorm");
             isWindy = true;
             waves.GetComponent<WaveGen>()._scale = 2;
+            StartCoroutine(TurnOffAfterSeconds());
         }
         else
         {
@@ -37,6 +38,12 @@ public class StormController : MonoBehaviour {
             isWindy = false;
             waves.GetComponent<WaveGen>()._scale = 1;
         }
+    }
+
+    private IEnumerator TurnOffAfterSeconds()
+    {
+        yield return new WaitForSeconds(20);
+        ActivateStorm();
     }
 
     public void FlashLightning(){
