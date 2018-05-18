@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4023783765874498}
   - component: {fileID: 33597579916638438}
   - component: {fileID: 23364201582871836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group22679
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4593442317162458}
   - component: {fileID: 33660583135558132}
   - component: {fileID: 23540461503380788}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group22677
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4087934989904624}
   - component: {fileID: 33584878090437838}
   - component: {fileID: 23091221227720970}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group29548
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4606127438374484}
   - component: {fileID: 33394446890891452}
   - component: {fileID: 23314132602348242}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group29546
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4302009861015460}
   - component: {fileID: 33028709601851442}
   - component: {fileID: 23615257756132060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group22678
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4232905865960100}
   - component: {fileID: 33649872009448656}
   - component: {fileID: 23469910219814286}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group29545
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4462578269671332}
   - component: {fileID: 33883371681393662}
   - component: {fileID: 23668130844572798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group29549
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4230963728505426}
   - component: {fileID: 33633552613554394}
   - component: {fileID: 23781051594095310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group41840
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4321351396795286}
   - component: {fileID: 33615783162674462}
   - component: {fileID: 23999705769257078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group12113
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4571545760360610}
   - component: {fileID: 33696189717705644}
   - component: {fileID: 23325047801779340}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group17989
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4727899229947918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,9 +207,9 @@ GameObject:
   - component: {fileID: 136128265666555076}
   - component: {fileID: 114878703953548264}
   - component: {fileID: 54039223512986976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OilDrum
-  m_TagString: Untagged
+  m_TagString: ObjectWeighted
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4890465752976456}
   - component: {fileID: 33527407219651210}
   - component: {fileID: 23864590996112392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group17991
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4237772169188756}
   - component: {fileID: 33950973527703266}
   - component: {fileID: 23031770601423854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Oil_drum:Group22676
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,8 +975,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fakeMass: 1
   _canPickup: 1
-  _canPush: 1
-  _toolClassification: 0
+  _canPush: 0
+  _toolClassification: 2
   _consumedOnCorrectInteraction: 0
   _canFill: 1
   _containingLiquid: 2
