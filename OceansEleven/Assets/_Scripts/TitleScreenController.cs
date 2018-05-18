@@ -14,17 +14,17 @@ public class TitleScreenController : MonoBehaviour {
 
     private void Start()
     {
-        _title.SetActive(true);
-        _flag.SetActive(true);
-        _ui.SetActive(false);
+        //_title.SetActive(true);
+        //_flag.SetActive(true);
+        //_ui.SetActive(false);
     }
 
     void Update () {
         if (Input.anyKeyDown){
 
-            _title.SetActive(false);
-            _flag.SetActive(false);
-            _ui.SetActive(true);
+            //_title.SetActive(false);
+            //_flag.SetActive(false);
+            //_ui.SetActive(true);
         } 
         if (Input.GetKeyUp(KeyCode.S)){
             if (!isWindy)
@@ -33,6 +33,7 @@ public class TitleScreenController : MonoBehaviour {
                 isWindy = true;
             } else {
                 _stormGO.GetComponent<Animator>().SetTrigger("endStorm"); 
+                isWindy = false;
             }
         }
 	}

@@ -8,6 +8,8 @@ public class StormController : MonoBehaviour {
     public Light mainLight;
     public GameObject waves;
 
+    private bool isWindy = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +17,21 @@ public class StormController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            if (!isWindy)
+            {
+                this.GetComponent<Animator>().SetTrigger("startStorm");
+                isWindy = true;
+                waves.GetComponent<WaveGen>()._scale = 2;
+            }
+            else
+            {
+                this.GetComponent<Animator>().SetTrigger("endStorm");
+                isWindy = false;
+                waves.GetComponent<WaveGen>()._scale = 1;
+            }
+        }
 	}
 
     public void FlashLightning(){
@@ -26,4 +42,7 @@ public class StormController : MonoBehaviour {
     {
         mainLight.DOIntensity(1.0f, 0.1f);
     }
+
+
+   
 }
