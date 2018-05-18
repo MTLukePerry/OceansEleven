@@ -33,7 +33,7 @@ public class Cannon : InteractiveObject
             {
                 _ammo.Add(heldObject);
                 heldObject.GetComponent<Rigidbody>().isKinematic = true;
-                heldObject.transform.position = gameObject.transform.position - new Vector3(0, 1000, 0); // Extremely cheap hack - hide it away for now
+                heldObject.transform.position = gameObject.transform.position - new Vector3(0, 150, 0); // Extremely cheap hack - hide it away for now
             }
             else if (heldObject == null)
             {
