@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3201765bf0c664cbc4fd595d6e1642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fakeMass: 0
+  _fakeMass: 1
   _canPickup: 1
   _canPush: 1
   _toolClassification: 0
