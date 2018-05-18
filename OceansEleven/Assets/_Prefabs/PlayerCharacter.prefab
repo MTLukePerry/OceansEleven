@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087903dbcdf712346aef49600e89bab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingSpeed: 1
+  _startingSpeed: 1.5
   _strength: 1
   _intitialThrowStrength: 500
   _baseTurnRate: 0.15

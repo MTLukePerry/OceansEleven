@@ -10,6 +10,10 @@ public class ObjectDespawner : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerController>().StartRespawn();
         }
+        else if (other.gameObject.GetComponent<Cannon>() != null)
+        {
+            SingletonManager.GetInstance<NetTargetManager>().DropOnBoat(other.gameObject);
+        }
         else if (other.gameObject.tag != "Indestructible")
         {
             Destroy(other.gameObject);
