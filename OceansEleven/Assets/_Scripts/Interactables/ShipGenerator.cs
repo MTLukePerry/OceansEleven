@@ -12,7 +12,7 @@ public class ShipGenerator : InteractiveObject
 
     private GameModeManager manager = null;
 
-    private float _currentFuel = 50;
+    private float _currentFuel = 75;
     private bool _fueling = false;
 
     private void Start()

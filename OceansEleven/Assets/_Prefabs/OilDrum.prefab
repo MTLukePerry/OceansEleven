@@ -196,6 +196,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1791690261208310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4052715104954482}
+  - component: {fileID: 65860731202012470}
+  - component: {fileID: 114542352292239982}
+  m_Layer: 9
+  m_Name: ScoreTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1860255102679128
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +277,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4727899229947918}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4052715104954482
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791690261208310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4766215543966736}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4087934989904624
 Transform:
@@ -422,11 +452,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860255102679128}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.3676376, y: -0.41, z: -3.9204998}
-  m_LocalScale: {x: 2.379299, y: 2.379299, z: 2.379299}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.68, y: -1.6, z: 0.69716835}
+  m_LocalScale: {x: 2.3792999, y: 2.3792999, z: 2.3792999}
   m_Children:
   - {fileID: 4727899229947918}
+  - {fileID: 4052715104954482}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -528,7 +559,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a74820d4875c245d6b7bab2bbeb6de07, type: 3}
+  - {fileID: 2100000, guid: c8171200b50cb490f86500ed3a66878a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -668,7 +699,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a74820d4875c245d6b7bab2bbeb6de07, type: 3}
+  - {fileID: 2100000, guid: c8171200b50cb490f86500ed3a66878a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -703,7 +734,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a74820d4875c245d6b7bab2bbeb6de07, type: 3}
+  - {fileID: 2100000, guid: b7d739541e95749939dbcdf7b0811a57, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -843,7 +874,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a74820d4875c245d6b7bab2bbeb6de07, type: 3}
+  - {fileID: 2100000, guid: b7d739541e95749939dbcdf7b0811a57, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -960,8 +991,32 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65860731202012470
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791690261208310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 1, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114542352292239982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791690261208310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8551ca5ed1e3274aa0ede8bcd0a27b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreWorth: 5
 --- !u!114 &114878703953548264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -980,7 +1035,7 @@ MonoBehaviour:
   _consumedOnCorrectInteraction: 0
   _canFill: 1
   _containingLiquid: 2
-  _startingFillAmount: 0
+  _startingFillAmount: 100
 --- !u!136 &136128265666555076
 CapsuleCollider:
   m_ObjectHideFlags: 1
