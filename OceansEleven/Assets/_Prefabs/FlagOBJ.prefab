@@ -50,14 +50,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1572884289910650}
-  m_LocalRotation: {x: 0.9999948, y: -0, z: -0, w: -0.0032288067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.85379577, y: -0.0068129716, z: -0.011176787, w: -0.5204435}
+  m_LocalPosition: {x: 3.5, y: 16.7, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4709289837715266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180.37, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 242.73, y: 1.5, z: 0}
 --- !u!4 &4709289837715266
 Transform:
   m_ObjectHideFlags: 1
@@ -122,8 +122,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 7.500001, y: 5.000001, z: 0.064574465}
+    m_Center: {x: 0, y: 0.00000047683716, z: 0}
+    m_Extent: {x: 7.732595, y: 5.3488917, z: 4.2524486}
   m_DirtyAABB: 0
 --- !u!183 &183886791160005772
 Cloth:

@@ -10,29 +10,34 @@ public class StormController : MonoBehaviour {
 
     private bool isWindy = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void Awake()
+    {
+        SingletonManager.RegisterSingleton<StormController>(this);
+    }
+
+    void Update ()
+    {
         if (Input.GetKeyUp(KeyCode.S))
         {
-            if (!isWindy)
-            {
-                this.GetComponent<Animator>().SetTrigger("startStorm");
-                isWindy = true;
-                waves.GetComponent<WaveGen>()._scale = 2;
-            }
-            else
-            {
-                this.GetComponent<Animator>().SetTrigger("endStorm");
-                isWindy = false;
-                waves.GetComponent<WaveGen>()._scale = 1;
-            }
+            ActivateStorm();
         }
-	}
+    }
+
+    public void ActivateStorm()
+    {
+        if (!isWindy)
+        {
+            this.GetComponent<Animator>().SetTrigger("startStorm");
+            isWindy = true;
+            waves.GetComponent<WaveGen>()._scale = 2;
+        }
+        else
+        {
+            this.GetComponent<Animator>().SetTrigger("endStorm");
+            isWindy = false;
+            waves.GetComponent<WaveGen>()._scale = 1;
+        }
+    }
 
     public void FlashLightning(){
         mainLight.DOIntensity(5.0f, 0.1f);   

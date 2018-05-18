@@ -713,24 +713,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224364317497222812, guid: f8a0d9de860ff490e85537dbc14cbfe9,
+    - target: {fileID: 114973273285801488, guid: f8a0d9de860ff490e85537dbc14cbfe9,
         type: 2}
-      propertyPath: m_AnchorMax.y
+      propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224005351694425878, guid: f8a0d9de860ff490e85537dbc14cbfe9,
+    - target: {fileID: 114973273285801488, guid: f8a0d9de860ff490e85537dbc14cbfe9,
         type: 2}
-      propertyPath: m_AnchorMax.y
+      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224552565634334488, guid: f8a0d9de860ff490e85537dbc14cbfe9,
+    - target: {fileID: 114010052463962064, guid: f8a0d9de860ff490e85537dbc14cbfe9,
         type: 2}
-      propertyPath: m_AnchorMax.x
+      propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224552565634334488, guid: f8a0d9de860ff490e85537dbc14cbfe9,
+    - target: {fileID: 114010052463962064, guid: f8a0d9de860ff490e85537dbc14cbfe9,
         type: 2}
-      propertyPath: m_AnchorMax.y
+      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114530015961522866, guid: f8a0d9de860ff490e85537dbc14cbfe9,
@@ -753,26 +753,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114010052463962064, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114010052463962064, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114973273285801488, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114973273285801488, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114568376292318328, guid: f8a0d9de860ff490e85537dbc14cbfe9,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -782,29 +762,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998240966098950, guid: f8a0d9de860ff490e85537dbc14cbfe9, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224725180625025826, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224725180625025826, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224725180625025826, guid: f8a0d9de860ff490e85537dbc14cbfe9,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393364822102334, guid: f8a0d9de860ff490e85537dbc14cbfe9, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8a0d9de860ff490e85537dbc14cbfe9, type: 2}
@@ -1719,56 +1676,6 @@ Prefab:
     - target: {fileID: 4384418712647904, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 137881617507491746, guid: b15760539d5ef4e1cbf03fb615edaf6c,
-        type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137881617507491746, guid: b15760539d5ef4e1cbf03fb615edaf6c,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.x
-      value: 7.732595
-      objectReference: {fileID: 0}
-    - target: {fileID: 137881617507491746, guid: b15760539d5ef4e1cbf03fb615edaf6c,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.y
-      value: 5.3488917
-      objectReference: {fileID: 0}
-    - target: {fileID: 137881617507491746, guid: b15760539d5ef4e1cbf03fb615edaf6c,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: 4.2524486
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384418712647904, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384418712647904, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384418712647904, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 242.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384418712647904, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 137881617507491746, guid: b15760539d5ef4e1cbf03fb615edaf6c,
-        type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137881617507491746, guid: b15760539d5ef4e1cbf03fb615edaf6c,
-        type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: 0.00000047683716
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572884289910650, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b15760539d5ef4e1cbf03fb615edaf6c, type: 2}

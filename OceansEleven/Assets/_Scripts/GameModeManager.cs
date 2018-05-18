@@ -14,9 +14,10 @@ public class GameModeManager : MonoBehaviour
 
     [SerializeField] private SimpleRotate _paddleWheelSpeed;
 
-    private float _boatProgress = 0f;
+    private float _boatProgress = 0.45f;
 
     private bool _resetGameStarted = false;
+    private bool _halfWay = false;
 
     private void Awake ()
     {
@@ -55,6 +56,12 @@ public class GameModeManager : MonoBehaviour
         }
         _boatProgress += addedProgression;
         UpdateBoatPosition(_boatProgress);
+
+        if (_boatProgress > 0.5f && !_halfWay)
+        {
+            _halfWay = true;
+            SingletonManager.GetInstance<StormController>().ActivateStorm();
+        }
     }
 
     private void UpdateBoatPosition(float normalizedProgress)
