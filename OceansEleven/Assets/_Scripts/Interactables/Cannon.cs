@@ -8,8 +8,12 @@ public class Cannon : InteractiveObject
 {
     [SerializeField] private Transform _firePosition;
 
-    [SerializeField] private float _additionalUpAngle = 0.1f;
-    [SerializeField] private float _cannonFirePower = 100.0f;
+    [SerializeField] private GameObject _targetingReticule;
+    private GameObject _newTarget;
+    private Vector3 _fireToPosition;
+
+    //[SerializeField] private float _additionalUpAngle = 0.1f;
+    [SerializeField] private float _cannonFirePower = 300.0f;
 
     [SerializeField] private int _ammoLimit = 2;
     private List<ObjectProperties> _ammo = new List<ObjectProperties>();
@@ -38,8 +42,30 @@ public class Cannon : InteractiveObject
             else if (heldObject == null)
             {
                 _firingCannon = true;
-                StartCoroutine(LightCannon());
+                _newTarget = Instantiate(_targetingReticule, _firePosition.position + new Vector3(0, 1, 0), Quaternion.identity, gameObject.transform);
+                _newTarget.GetComponent<CannonAimer>().MoveDirection = transform.forward -= new Vector3(0, transform.forward.y, 0);
             }
+        }
+        else if (!interacting && _firingCannon && _newTarget != null)
+        {
+            //Get position of _newTarget with ray to screen and aim to fire there
+            _newTarget.GetComponent<CannonAimer>().Move = false;
+            Vector3 targetPosition = _newTarget.transform.position;
+            Destroy(_newTarget);
+            _newTarget = null;
+
+            targetPosition = Camera.main.WorldToViewportPoint(targetPosition);
+
+            Ray ray = Camera.main.ViewportPointToRay(targetPosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                _fireToPosition = hit.point;
+                //var test = Instantiate(_targetingReticule, _fireToPosition, Quaternion.identity);
+                //test.GetComponent<CannonAimer>().Move = false;
+            }
+
+            StartCoroutine(LightCannon());
         }
     }
 
@@ -57,7 +83,7 @@ public class Cannon : InteractiveObject
             var rb = _ammo[i].gameObject.GetComponent<Rigidbody>();
             _ammo[i].transform.position = _firePosition.position;
             rb.isKinematic = false;
-            var normalizedFireRotation = Vector3.Normalize(gameObject.transform.forward + new Vector3(0, _additionalUpAngle, 0));
+            var normalizedFireRotation = Vector3.Normalize(_fireToPosition - gameObject.transform.position);
             rb.AddForce(normalizedFireRotation * _cannonFirePower * (rb.mass * 10));
             _anim.SetTrigger("FireCannon");
             AudioSource audio = GetComponent<AudioSource>();

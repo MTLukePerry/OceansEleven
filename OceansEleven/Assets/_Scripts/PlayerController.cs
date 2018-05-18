@@ -97,6 +97,10 @@ public class PlayerController : MonoBehaviour
         {
             InteractItem();
         }
+        else if (Input.GetButtonUp("Interact_P" + _controllerNumber))
+        {
+            StopInteracting();
+        }
         else if (Input.GetAxis("Trigger_P" + _controllerNumber) < 0)
         {
             ThrowItem();
@@ -239,6 +243,15 @@ public class PlayerController : MonoBehaviour
                 _interactingItem = objectToInteract;
                 objectToInteract.InteractedWith(true, item);
             }
+        }
+    }
+
+    public void StopInteracting()
+    {
+        if (_interactingItem != null)
+        {
+            _interactingItem.InteractedWith(false, null);
+            _interactingItem = null;
         }
     }
 

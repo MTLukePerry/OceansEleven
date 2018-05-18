@@ -87,8 +87,7 @@ public class PlayerPickupTrigger : MonoBehaviour
                 var interaction = (InteractiveObject)objProperties;
                 if (interaction.BeingInteractedWith)
                 {
-                    interaction.InteractedWith(false, null);
-                    player.InteractingItem = null;
+                    player.StopInteracting();
                 }
                 _interactiveObjectsAvailable.Remove(objProperties);
             }
