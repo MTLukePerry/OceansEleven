@@ -36750,8 +36750,8 @@ MonoBehaviour:
   _LiquidRequired: 2
   _consumesObjectOnUse: 0
   _uiSlider: {fileID: 0}
-  _fillRate: 0.05
-  _decayRate: 0.02
+  _fillRate: 5
+  _decayRate: 1
 --- !u!114 &114080059773056560
 MonoBehaviour:
   m_ObjectHideFlags: 1

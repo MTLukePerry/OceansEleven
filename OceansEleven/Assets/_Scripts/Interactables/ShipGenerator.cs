@@ -7,8 +7,8 @@ public class ShipGenerator : InteractiveObject
 {
     [SerializeField] private Image _uiSlider;
 
-    [SerializeField] private float _fillRate = 0.035f;
-    [SerializeField] private float _decayRate = 0.015f;
+    [SerializeField] private float _fillRate = 10f;
+    [SerializeField] private float _decayRate = 2f;
 
     private GameModeManager manager = null;
 
@@ -24,11 +24,11 @@ public class ShipGenerator : InteractiveObject
     {
         if (!_fueling)
         {
-            _currentFuel -= (1 * _decayRate);
+            _currentFuel -= _decayRate * Time.deltaTime;
         }
         else
         {
-            _currentFuel += (1 * _fillRate);
+            _currentFuel += _fillRate * Time.deltaTime;
         }
         _currentFuel = Mathf.Clamp(_currentFuel, 0, 100);
 

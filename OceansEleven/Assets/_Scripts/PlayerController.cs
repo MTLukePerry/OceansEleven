@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _startingSpeed = 1;
+    [SerializeField] private float _startingSpeed = 10;
+    public float _maxVelocity = 10.0f;
     private float _speed;
     [SerializeField] private float _strength = 1;
     [SerializeField] private float _intitialThrowStrength = 500;
 
-    [SerializeField] private float _baseTurnRate = 0.15f;
+    [SerializeField] private float _baseTurnRate = 15f;
     private float _currentTurnRate;
 
     private Vector3 _respawnPosition = new Vector3(-8, 0.15f, -2.75f);
@@ -110,10 +111,13 @@ public class PlayerController : MonoBehaviour
     private void MoveCharacter(float horizontal, float vertical)
     {
         Vector3 movement = CalculateMoveDirection(horizontal, vertical);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), _currentTurnRate);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), _currentTurnRate * Time.deltaTime);
         //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (movement * 10), Color.green);
         //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (-movement * 10), Color.green);
-        _rigidbody.AddForce(movement * _speed);
+        if (Vector3.Dot(_rigidbody.velocity, movement) < _maxVelocity)
+        {
+            _rigidbody.AddForce(movement * _speed * Time.deltaTime);
+        }
     }
 
 
@@ -175,8 +179,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (_pushItem is Cannon)
                 {
-                    _currentTurnRate = 0.01f;
-                    _speed = 0.5f;
+                    _currentTurnRate = _baseTurnRate * 0.1f;
+                    _speed = _startingSpeed * 0.5f;
                 }
                 _pushItem.transform.position += new Vector3(0,0.35f,0);
                 _pushItemSlot.position = _pushItem.transform.position + (gameObject.transform.forward * 1);

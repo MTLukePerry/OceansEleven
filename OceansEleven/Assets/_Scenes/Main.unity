@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boatObjectiveSlider: {fileID: 29413504}
-  _fullSpeedProgress: 0.00005
+  _fullSpeedProgress: 0.003
   _fullProgressBoundary: 0.4
   _twoThirdsProgressBoundary: 0.15
   _paddleWheelSpeed: {fileID: 379060691}

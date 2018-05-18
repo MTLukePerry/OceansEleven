@@ -7,7 +7,7 @@ public class GameModeManager : MonoBehaviour
 {
     [SerializeField] private Slider _boatObjectiveSlider;
 
-    [SerializeField] private float _fullSpeedProgress = 0.00005f;
+    [SerializeField] private float _fullSpeedProgress = 0.01f;
 
     [SerializeField] private float _fullProgressBoundary = 0.4f;
     [SerializeField] private float _twoThirdsProgressBoundary = 0.15f;
@@ -36,17 +36,17 @@ public class GameModeManager : MonoBehaviour
         float addedProgression = 0;
         if (fuelPercentage >= _fullProgressBoundary)
         {
-            addedProgression += _fullSpeedProgress;
+            addedProgression += _fullSpeedProgress * Time.deltaTime;
             _paddleWheelSpeed.rotationTime = 2.0f;
         }
         else if (fuelPercentage >= _twoThirdsProgressBoundary)
         {
-            addedProgression += (_fullSpeedProgress * 0.66f);
+            addedProgression += (_fullSpeedProgress * 0.66f) * Time.deltaTime;
             _paddleWheelSpeed.rotationTime = 5.0f;
         }
         else if (fuelPercentage > 0)
         {
-            addedProgression += (_fullSpeedProgress * 0.33f);
+            addedProgression += (_fullSpeedProgress * 0.33f) * Time.deltaTime;
             _paddleWheelSpeed.rotationTime = 30.0f;
         }
         _boatProgress += addedProgression;
