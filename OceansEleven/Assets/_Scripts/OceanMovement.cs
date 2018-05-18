@@ -15,7 +15,8 @@ public class OceanMovement : MonoBehaviour
     {
         if (collision.gameObject.tag != "Boat")
         {
-            if (collision.gameObject.GetComponent<RideTheWave>() == null)
+            if (collision.gameObject.GetComponent<RideTheWave>() == null &&
+                !collision.rigidbody.isKinematic)
             {
                 var rideTheWave = collision.gameObject.AddComponent<RideTheWave>();
                 rideTheWave.velocity = _velocity;
