@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _speed = 300;
+    [SerializeField] private float _startingSpeed = 1;
+    private float _speed;
     [SerializeField] private float _strength = 1;
     [SerializeField] private float _intitialThrowStrength = 500;
 
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float _currentTurnRate;
 
     private Vector3 _respawnPosition = new Vector3(-8, 0.15f, -2.75f);
-    [SerializeField] private float _respawnTime = 5.0f;
+    [SerializeField] private float _respawnTime = 3.0f;
     private bool _respawning;
 
     private Rigidbody _rigidbody;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             _respawnPosition = respawn.transform.position;
         }
+        _speed = _startingSpeed;
     }
 
     private void Update()
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
             PlayerControls();
         }
 
-        if ((transform.position.x <= -25.0f || transform.position.y < -200 || transform.position.x >= 40.0f || transform.position.z <= -30.0f || transform.position.z >= 40.0f) && !_respawning)
+        if ((transform.position.x <= -25.0f || transform.position.y < -200 || transform.position.x >= 40.0f || transform.position.z <= -15.0f || transform.position.z >= 60.0f) && !_respawning)
         {
             StartRespawn();
         }
@@ -167,11 +169,17 @@ public class PlayerController : MonoBehaviour
             }
             else if (_pushItem != null)
             {
-                _pushItem.transform.position += new Vector3(0,0.15f,0);
+                if (_pushItem is Cannon)
+                {
+                    _currentTurnRate = 0.01f;
+                    _speed = 0.5f;
+                }
+                _pushItem.transform.position += new Vector3(0,0.35f,0);
                 _pushItemSlot.position = _pushItem.transform.position + (gameObject.transform.forward * 1);
                 var rb = _pushItem.gameObject.GetComponent<Rigidbody>();
                 rb.isKinematic = true;
-                _currentTurnRate -= (rb.mass / 5); // TODO MAKE ALL THIS WORK
+                //var collider = _pushItem.gameObject.GetComponent<Collider>();
+                //collider.isTrigger = true;
             }
         }
         else
@@ -212,6 +220,7 @@ public class PlayerController : MonoBehaviour
         _pushItem.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         _pushItem = null;
         _currentTurnRate = _baseTurnRate;
+        _speed = _startingSpeed;
     }
 
     private void InteractItem()
