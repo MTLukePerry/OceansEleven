@@ -21,6 +21,6 @@ public class TitleScreenController : MonoBehaviour {
             _ui.SetActive(true);
             Time.timeScale = 1;
         } 
-	}
+    }
 }
 
