@@ -14,7 +14,9 @@ public class GameModeManager : MonoBehaviour
 
     [SerializeField] private SimpleRotate _paddleWheelSpeed;
 
-    private float _boatProgress = 0;
+    private float _boatProgress = 0f;
+
+    private bool _resetGameStarted = false;
 
     private void Awake ()
     {
@@ -23,6 +25,8 @@ public class GameModeManager : MonoBehaviour
 
     private void Start()
     {
+        _resetGameStarted = false;
+
         SingletonManager.GetInstance<ControllerManager>().SpawnPlayers();
 
         if (_boatObjectiveSlider == null)
@@ -71,5 +75,16 @@ public class GameModeManager : MonoBehaviour
     {
         SingletonManager.GetInstance<ScoreManager>().InitiateEndOfGame();
         Debug.Log("You've finished the game! Congrats!");
+        if (!_resetGameStarted)
+        {
+            bool _resetGameStarted = true;
+            StartCoroutine(LoadFirstScene(10));
+        }
+    }
+
+    private IEnumerator LoadFirstScene(int secondsWait)
+    {
+        yield return new WaitForSeconds(secondsWait);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

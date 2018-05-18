@@ -66,7 +66,10 @@ public class ScoreManager : MonoBehaviour
 
     public void InitiateEndOfGame()
     {
-        _updateScore = false;
-        scoreText.text = "Final Score: " + _score;
+        if (_updateScore)
+        {
+            _updateScore = false;
+            scoreText.text = "Final Score: " + _score;
+        }
     }
 }
