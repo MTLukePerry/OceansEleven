@@ -252,6 +252,7 @@ public class PlayerController : MonoBehaviour
         }
         _rigidbody.isKinematic = false;
         GetComponent<Collider>().isTrigger = false;
+        _rigidbody.velocity = new Vector3();
         gameObject.transform.forward = transform.right;
         gameObject.transform.position = _respawnPosition;
         _respawning = false;
