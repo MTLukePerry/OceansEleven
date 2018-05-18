@@ -83,7 +83,7 @@ public class Cannon : InteractiveObject
         for(int i = 0; i < _ammo.Count; i++)
         {
             var tool = _ammo[i].GetComponent<ToolObject>();
-            if (tool.ToolClassification == ToolType.Net)
+            if (tool != null && tool.ToolClassification == ToolType.Net)
             {
                 var ballNet = _ammo[i];
                 var actualNet = Instantiate(_actualNet);
