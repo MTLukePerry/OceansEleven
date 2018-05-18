@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ObjectDespawner : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerController>().StartRespawn();
+            other.gameObject.GetComponent<PlayerController>().StartRespawn();
         }
-        else if (collision.gameObject.tag != "Indestructible")
+        else if (other.gameObject.tag != "Indestructible")
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
