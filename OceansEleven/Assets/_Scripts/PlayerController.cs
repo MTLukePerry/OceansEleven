@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _baseTurnRate = 0.15f;
     private float _currentTurnRate;
 
+    private Vector3 _respawnPosition = new Vector3(-8, 0.15f, -2.75f);
+    [SerializeField] private float _respawnTime = 5.0f;
+    private bool _respawning;
+
     private Rigidbody _rigidbody;
     private PlayerPickupTrigger _interactionTrigger;
     private Transform _pickedUpItemSlot;
@@ -43,13 +47,23 @@ public class PlayerController : MonoBehaviour
         _pickedUpItemSlot = transform.Find("PickupItemSlot");
         _pushItemSlot = transform.Find("PushItemSlot");
         _currentTurnRate = _baseTurnRate;
+        GameObject respawn = GameObject.Find("P" + _controllerNumber + "RespawnPoint");
+        if (respawn != null)
+        {
+            _respawnPosition = respawn.transform.position;
+        }
     }
 
     private void Update()
     {
-        if (_controllerNumber > 0)
+        if (_controllerNumber > 0 && !_respawning)
         {
             PlayerControls();
+        }
+
+        if ((transform.position.x <= -25.0f || transform.position.y < -200 || transform.position.x >= 40.0f || transform.position.z <= -30.0f || transform.position.z >= 40.0f) && !_respawning)
+        {
+            StartRespawn();
         }
 
         if (_pickedUpItem != null)
@@ -217,5 +231,29 @@ public class PlayerController : MonoBehaviour
                 objectToInteract.InteractedWith(true, item);
             }
         }
+    }
+
+    public void StartRespawn()
+    {
+        if (!_respawning)
+        {
+            _respawning = true;
+            StartCoroutine(Respawn());
+        }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(_respawnTime);
+        var rtw = GetComponent<RideTheWave>();
+        if (rtw)
+        {
+            Destroy(rtw);
+        }
+        _rigidbody.isKinematic = false;
+        GetComponent<Collider>().isTrigger = false;
+        gameObject.transform.forward = transform.right;
+        gameObject.transform.position = _respawnPosition;
+        _respawning = false;
     }
 }
