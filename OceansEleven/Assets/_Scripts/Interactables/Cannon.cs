@@ -15,6 +15,8 @@ public class Cannon : InteractiveObject
     private List<ObjectProperties> _ammo = new List<ObjectProperties>();
 
     [SerializeField] private float _litSecondsUntilFire = 1;
+
+    [SerializeField] private GameObject _actualNet;
     private Animator _anim;
 
     private bool _firingCannon = false;
@@ -54,6 +56,18 @@ public class Cannon : InteractiveObject
         //Cannon fires
         for(int i = 0; i < _ammo.Count; i++)
         {
+            var tool = _ammo[i].GetComponent<ToolObject>();
+            if (tool.ToolClassification == ToolType.Net)
+            {
+                var ballNet = _ammo[i];
+                var actualNet = Instantiate(_actualNet);
+                _ammo[i] = actualNet.GetComponent<ObjectProperties>();
+                Destroy(ballNet);
+
+                var ans = actualNet.GetComponent<ActualNetScript>();
+                ans.gameObjectToIgnore = gameObject;
+            }
+
             var rb = _ammo[i].gameObject.GetComponent<Rigidbody>();
             _ammo[i].transform.position = _firePosition.position;
             rb.isKinematic = false;
