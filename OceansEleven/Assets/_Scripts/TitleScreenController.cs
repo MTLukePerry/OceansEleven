@@ -15,6 +15,10 @@ public class TitleScreenController : MonoBehaviour {
     private void Awake()
     {
         //Time.timeScale = 1;
+        _title.SetActive(true);
+        _flag.SetActive(true);
+        _ui.SetActive(false);
+        _startObjects.SetActive(false);
     }
 
     void Update () {

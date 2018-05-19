@@ -14,6 +14,7 @@ public class GameModeManager : MonoBehaviour
     [SerializeField] private float _twoThirdsProgressBoundary = 0.15f;
 
     [SerializeField] private SimpleRotate _paddleWheelSpeed;
+    [SerializeField] private GameObject _endText;
 
 
     private float _boatProgress = 0f;
@@ -87,6 +88,7 @@ public class GameModeManager : MonoBehaviour
     {
         SingletonManager.GetInstance<ScoreManager>().InitiateEndOfGame();
         Debug.Log("You've finished the game! Congrats!");
+        _endText.SetActive(true);
         if (!_resetGameStarted)
         {
             bool _resetGameStarted = true;
