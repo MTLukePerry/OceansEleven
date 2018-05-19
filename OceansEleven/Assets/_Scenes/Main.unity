@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f587585a4523145884a4bd2d9aced4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameHasStarted: 0
   _boatObjectiveSlider: {fileID: 29413504}
   _fullSpeedProgress: 0.003
   _fullProgressBoundary: 0.4
@@ -804,7 +805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4766215543966736, guid: 633087d6016c34e41b4819e18feb0ec7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4766215543966736, guid: 633087d6016c34e41b4819e18feb0ec7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -905,7 +906,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4766215543966736, guid: 633087d6016c34e41b4819e18feb0ec7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4766215543966736, guid: 633087d6016c34e41b4819e18feb0ec7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2574,7 +2575,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4766215543966736, guid: 633087d6016c34e41b4819e18feb0ec7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4766215543966736, guid: 633087d6016c34e41b4819e18feb0ec7, type: 2}
       propertyPath: m_LocalPosition.z

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameModeManager : MonoBehaviour
 {
+    public bool gameHasStarted =false;
     [SerializeField] private Slider _boatObjectiveSlider;
 
     [SerializeField] private float _fullSpeedProgress = 0.01f;
@@ -38,29 +39,32 @@ public class GameModeManager : MonoBehaviour
 
     public void UpdateBoatProgress(float fuelPercentage)
     {
-        float addedProgression = 0;
-        if (fuelPercentage >= _fullProgressBoundary)
+        if (gameHasStarted)
         {
-            addedProgression += _fullSpeedProgress * Time.deltaTime;
-            _paddleWheelSpeed.rotationTime = 2.0f;
-        }
-        else if (fuelPercentage >= _twoThirdsProgressBoundary)
-        {
-            addedProgression += (_fullSpeedProgress * 0.66f) * Time.deltaTime;
-            _paddleWheelSpeed.rotationTime = 5.0f;
-        }
-        else if (fuelPercentage > 0)
-        {
-            addedProgression += (_fullSpeedProgress * 0.33f) * Time.deltaTime;
-            _paddleWheelSpeed.rotationTime = 30.0f;
-        }
-        _boatProgress += addedProgression;
-        UpdateBoatPosition(_boatProgress);
+            float addedProgression = 0;
+            if (fuelPercentage >= _fullProgressBoundary)
+            {
+                addedProgression += _fullSpeedProgress * Time.deltaTime;
+                _paddleWheelSpeed.rotationTime = 2.0f;
+            }
+            else if (fuelPercentage >= _twoThirdsProgressBoundary)
+            {
+                addedProgression += (_fullSpeedProgress * 0.66f) * Time.deltaTime;
+                _paddleWheelSpeed.rotationTime = 5.0f;
+            }
+            else if (fuelPercentage > 0)
+            {
+                addedProgression += (_fullSpeedProgress * 0.33f) * Time.deltaTime;
+                _paddleWheelSpeed.rotationTime = 30.0f;
+            }
+            _boatProgress += addedProgression;
+            UpdateBoatPosition(_boatProgress);
 
-        if (_boatProgress > 0.5f && !_halfWay)
-        {
-            _halfWay = true;
-            SingletonManager.GetInstance<StormController>().ActivateStorm();
+            if (_boatProgress > 0.5f && !_halfWay)
+            {
+                _halfWay = true;
+                SingletonManager.GetInstance<StormController>().ActivateStorm();
+            }
         }
     }
 

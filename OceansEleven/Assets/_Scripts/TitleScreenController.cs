@@ -22,6 +22,7 @@ public class TitleScreenController : MonoBehaviour {
             _ui.SetActive(true);
             _startObjects.SetActive(true);
             Camera.main.GetComponent<Animator>().SetTrigger("startGame");
+            GetComponent<GameModeManager>().gameHasStarted = true;
             //Time.timeScale = 1;
         } 
     }
