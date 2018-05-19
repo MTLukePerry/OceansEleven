@@ -12,7 +12,9 @@ public class ShipGenerator : InteractiveObject
 
     private GameModeManager manager = null;
 
-    private float _currentFuel = 75;
+    [SerializeField] private Animator _boatAnim;
+
+    [SerializeField ]private float _currentFuel = 75;
     private bool _fueling = false;
 
     private void Start()
@@ -41,6 +43,12 @@ public class ShipGenerator : InteractiveObject
             }
 
             manager.UpdateBoatProgress(normalFuel);
+        }
+
+        if (_currentFuel <=0){
+            _boatAnim.SetInteger("engineState",1);
+        } else {
+            _boatAnim.SetInteger("engineState", 0);
         }
     }
 

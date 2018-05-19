@@ -13,12 +13,12 @@ public class BoatEffectsController : MonoBehaviour {
 	
     public void BreakEngine()
     {
-        _anim.SetTrigger("engineBreak");
+        _anim.SetInteger("engineState", 1);
 
     }
     public void FixEngine()
     {
-        _anim.SetTrigger("engineFix");
+        _anim.SetInteger("engineState", 0);
     }
 
 
