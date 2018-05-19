@@ -18,7 +18,7 @@ public class Cannon : InteractiveObject
     [SerializeField] private int _ammoLimit = 2;
     private List<ObjectProperties> _ammo = new List<ObjectProperties>();
 
-    [SerializeField] private float _litSecondsUntilFire = 1;
+    [SerializeField] private float _litSecondsUntilFire = 0.1f;
 
     [SerializeField] private GameObject _actualNet;
     private Animator _anim;
@@ -100,8 +100,7 @@ public class Cannon : InteractiveObject
             var normalizedFireRotation = Vector3.Normalize(_fireToPosition - gameObject.transform.position);
             rb.AddForce(normalizedFireRotation * _cannonFirePower * (rb.mass * 10));
             _anim.SetTrigger("FireCannon");
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Play();
+
             yield return new WaitForSeconds(0.1f);
         }
         _ammo.Clear();

@@ -434,11 +434,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1376032814}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!95 &969533573 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95743756256403804, guid: e90c3672a61854c9e816268a884f1b26,
-    type: 2}
-  m_PrefabInternal: {fileID: 1337392368}
 --- !u!1 &1002654564 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1987363079186664, guid: f8a0d9de860ff490e85537dbc14cbfe9,
@@ -613,19 +608,9 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2078939954}
-    - target: {fileID: 114029164573233086, guid: e90c3672a61854c9e816268a884f1b26,
+    - target: {fileID: 114852905738312158, guid: e90c3672a61854c9e816268a884f1b26,
         type: 2}
-      propertyPath: _boatAnim
-      value: 
-      objectReference: {fileID: 969533573}
-    - target: {fileID: 82180769651729050, guid: e90c3672a61854c9e816268a884f1b26,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82135535821972466, guid: e90c3672a61854c9e816268a884f1b26,
-        type: 2}
-      propertyPath: m_Enabled
+      propertyPath: _litSecondsUntilFire
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
