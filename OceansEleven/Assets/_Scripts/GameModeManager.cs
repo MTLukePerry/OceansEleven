@@ -17,6 +17,7 @@ public class GameModeManager : MonoBehaviour
     private float _boatProgress = 0f;
 
     private bool _resetGameStarted = false;
+    private bool _halfWay = false;
 
     private void Awake ()
     {
@@ -55,6 +56,12 @@ public class GameModeManager : MonoBehaviour
         }
         _boatProgress += addedProgression;
         UpdateBoatPosition(_boatProgress);
+
+        if (_boatProgress > 0.5f && !_halfWay)
+        {
+            _halfWay = true;
+            SingletonManager.GetInstance<StormController>().ActivateStorm();
+        }
     }
 
     private void UpdateBoatPosition(float normalizedProgress)
@@ -85,6 +92,6 @@ public class GameModeManager : MonoBehaviour
     private IEnumerator LoadFirstScene(int secondsWait)
     {
         yield return new WaitForSeconds(secondsWait);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
