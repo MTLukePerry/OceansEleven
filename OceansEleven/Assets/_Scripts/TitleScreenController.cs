@@ -35,7 +35,7 @@ public class TitleScreenController : MonoBehaviour {
             }
         }
         if (Input.GetKeyUp(KeyCode.Escape)){
-
+            Destroy(GameObject.Find("Main"));
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
     }

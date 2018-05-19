@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1082483996}
-  m_IndirectSpecularColor: {r: 0.07113592, g: 0.3566342, b: 0.97829956, a: 1}
+  m_IndirectSpecularColor: {r: 0.05975036, g: 0.2995853, b: 0.8218314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -604,6 +604,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1184181646103174, guid: a648d9465722f4063b5ebaf29e0bd685, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a648d9465722f4063b5ebaf29e0bd685, type: 2}
   m_IsPrefabParent: 0
@@ -1150,7 +1154,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -1473,6 +1477,11 @@ Prefab:
         type: 2}
       propertyPath: _xRotation
       value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286140405571288, guid: e90c3672a61854c9e816268a884f1b26,
+        type: 2}
+      propertyPath: rotationTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e90c3672a61854c9e816268a884f1b26, type: 2}
