@@ -47,14 +47,14 @@ public class WaveGen : MonoBehaviour
         _waveMaterial.SetTextureOffset("_MainTex", new Vector2(-offset, -offset));
     }
 
-    IEnumerator LerpWave(float waveTarget, float timeSpeed=0.01f)
+    public IEnumerator LerpWave(float waveTarget, float timeSpeed=0.01f)
     {
         float startTime = Time.time;
-        while (_scale < waveTarget)
+        while (_scale < waveTarget-0.01f)
         {
-            //transform.position = Vector3.Lerp(source, target, (Time.time - startTime) / overTime);
             _scale = Mathf.Lerp(_scale, waveTarget, (Time.time - startTime) * timeSpeed);
             yield return null;
         }
+
     }
 }

@@ -15,6 +15,7 @@ public class GameModeManager : MonoBehaviour
 
     [SerializeField] private SimpleRotate _paddleWheelSpeed;
 
+
     private float _boatProgress = 0f;
 
     private bool _resetGameStarted = false;
