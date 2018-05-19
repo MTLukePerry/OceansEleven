@@ -124,9 +124,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: looping
     path: ShipGenerator/Smoke
-    classID: 1
+    classID: 198
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -145,10 +145,10 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 4170982807
-      attribute: 2086281974
+      attribute: 925582877
       script: {fileID: 0}
-      typeID: 1
-      customType: 0
+      typeID: 198
+      customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 649036393
@@ -294,9 +294,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: looping
     path: ShipGenerator/Smoke
-    classID: 1
+    classID: 198
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0

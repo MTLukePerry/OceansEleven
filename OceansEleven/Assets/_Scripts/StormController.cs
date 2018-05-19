@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Playables;
 
 public class StormController : MonoBehaviour {
 
@@ -27,16 +28,22 @@ public class StormController : MonoBehaviour {
     {
         if (!isWindy)
         {
-            this.GetComponent<Animator>().SetTrigger("startStorm");
+            GetComponent<PlayableDirector>().Play();
             isWindy = true;
-            waves.GetComponent<WaveGen>()._scale = 1.4f;
+            /*this.GetComponent<Animator>().SetTrigger("startStorm");
+
+            waves.GetComponent<WaveGen>()._scale = 1.5f;
             StartCoroutine(TurnOffAfterSeconds());
+            */
         }
         else
         {
-            this.GetComponent<Animator>().SetTrigger("endStorm");
             isWindy = false;
+            /*
+            this.GetComponent<Animator>().SetTrigger("endStorm");
+
             waves.GetComponent<WaveGen>()._scale = 0.6f;
+            */
         }
     }
 
@@ -46,14 +53,6 @@ public class StormController : MonoBehaviour {
         ActivateStorm();
     }
 
-    public void FlashLightning(){
-        mainLight.DOIntensity(5.0f, 0.1f);   
-    }
-
-    public void RegularLightning()
-    {
-        mainLight.DOIntensity(1.0f, 0.1f);
-    }
 
 
    
