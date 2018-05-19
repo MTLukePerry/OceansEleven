@@ -29,14 +29,14 @@ public class StormController : MonoBehaviour {
         {
             this.GetComponent<Animator>().SetTrigger("startStorm");
             isWindy = true;
-            waves.GetComponent<WaveGen>()._scale = 2;
+            waves.GetComponent<WaveGen>()._scale = 1.4f;
             StartCoroutine(TurnOffAfterSeconds());
         }
         else
         {
             this.GetComponent<Animator>().SetTrigger("endStorm");
             isWindy = false;
-            waves.GetComponent<WaveGen>()._scale = 1;
+            waves.GetComponent<WaveGen>()._scale = 0.6f;
         }
     }
 
