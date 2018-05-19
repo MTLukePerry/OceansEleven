@@ -8,6 +8,7 @@ public class TitleScreenController : MonoBehaviour {
     [SerializeField] private GameObject _ui;
     [SerializeField] private GameObject _flag;
     [SerializeField] private GameObject _startObjects;
+    [SerializeField] private GameObject[] _audioObjects;
     [SerializeField] private WaveGen _wavesGO;
 
     private bool _gameStarted=false;
@@ -19,6 +20,8 @@ public class TitleScreenController : MonoBehaviour {
         _flag.SetActive(true);
         _ui.SetActive(false);
         _startObjects.SetActive(false);
+        _audioObjects[0].SetActive(true);
+        _audioObjects[1].SetActive(false);
     }
 
     void Update () {
@@ -35,6 +38,8 @@ public class TitleScreenController : MonoBehaviour {
                 GetComponent<GameModeManager>().gameHasStarted = true;
                 //Time.timeScale = 1;
                 StartCoroutine(_wavesGO.LerpWave(0.6f));
+                _audioObjects[0].SetActive(false);
+                _audioObjects[1].SetActive(true);
                 _gameStarted = true;
             }
         }
