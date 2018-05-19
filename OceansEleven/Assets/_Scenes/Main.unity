@@ -319,6 +319,16 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2078939954}
+    - target: {fileID: 198485298754260352, guid: e90c3672a61854c9e816268a884f1b26,
+        type: 2}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198485298754260352, guid: e90c3672a61854c9e816268a884f1b26,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e90c3672a61854c9e816268a884f1b26, type: 2}
   m_IsPrefabParent: 0
