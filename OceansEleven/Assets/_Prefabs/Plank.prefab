@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 65720209195062074}
   - component: {fileID: 54821247442091530}
   - component: {fileID: 114364836030514908}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plank
-  m_TagString: Untagged
+  m_TagString: ObjectWeighted
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274765152663762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.743079, y: -0.8086736, z: -2.2035255}
   m_LocalScale: {x: 3.1602404, y: 0.13265274, z: 0.54865474}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 57aef3b93f53f449d9e856513c687abc, type: 2}
+  - {fileID: 2100000, guid: 858ec1c0106ba4a1daf0fa4f7637df76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
