@@ -63,6 +63,6 @@ public class ObjectSpawner : MonoBehaviour
             }
         }
 
-        Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        Instantiate(objectToSpawn, transform.position, this.transform.rotation);
     }
 }
