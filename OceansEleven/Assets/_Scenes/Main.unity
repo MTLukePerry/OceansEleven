@@ -548,7 +548,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82463711318333086, guid: 8a7f1568d637d4d218a007ed96d2a10a, type: 2}
+    - {fileID: 114881960220956618, guid: 8a7f1568d637d4d218a007ed96d2a10a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8a7f1568d637d4d218a007ed96d2a10a, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1127271992 stripped
@@ -616,6 +618,16 @@ Prefab:
       propertyPath: _boatAnim
       value: 
       objectReference: {fileID: 969533573}
+    - target: {fileID: 82180769651729050, guid: e90c3672a61854c9e816268a884f1b26,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82135535821972466, guid: e90c3672a61854c9e816268a884f1b26,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e90c3672a61854c9e816268a884f1b26, type: 2}
   m_IsPrefabParent: 0
