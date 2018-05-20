@@ -10,6 +10,7 @@ public class TitleScreenController : MonoBehaviour {
     [SerializeField] private GameObject _startObjects;
     [SerializeField] private GameObject[] _audioObjects;
     [SerializeField] private Animator _wavesAnim;
+    [SerializeField] private Animator _splashAnim;
 
     private bool _gameStarted=false;
 
@@ -38,6 +39,7 @@ public class TitleScreenController : MonoBehaviour {
                 GetComponent<GameModeManager>().gameHasStarted = true;
                 //Time.timeScale = 1;
                 _wavesAnim.SetTrigger("startOcean");
+                _splashAnim.SetBool("gameHasStarted", true);
                 _audioObjects[0].SetActive(false);
                 _audioObjects[1].SetActive(true);
                 _gameStarted = true;
