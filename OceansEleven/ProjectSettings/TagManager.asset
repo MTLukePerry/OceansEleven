@@ -11,6 +11,7 @@ TagManager:
   - ObjectWeighted
   - Fire
   - Net
+  - Score
   layers:
   - Default
   - TransparentFX
