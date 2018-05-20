@@ -17,14 +17,17 @@ public class ActualNetScript : MonoBehaviour
         Destroy(this);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag != "Indestructible" &&
-            other.tag != "Boat" &&
-            other.tag != "Net" &&
-            other.gameObject != gameObjectToIgnore)
+    private void OnTriggerEnter(Collider other){
+
+        Debug.Log("Collider is" + other.gameObject.name + "_" + other.gameObject.tag);
         {
-            SingletonManager.GetInstance<NetTargetManager>().DropOnBoat(other.gameObject);
+            if (other.tag != "Indestructible" &&
+                other.tag != "Boat" &&
+                other.tag != "Net" &&
+                other.gameObject != gameObjectToIgnore)
+            {
+                SingletonManager.GetInstance<NetTargetManager>().DropOnBoat(other.gameObject);
+            }
         }
     }
 }
