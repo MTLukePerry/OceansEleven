@@ -17,6 +17,8 @@ public class ShipGenerator : InteractiveObject
     [SerializeField ]private float _currentFuel = 75;
     private bool _fueling = false;
 
+    [SerializeField] Color32[] _fillColourChange;
+
     private void Start()
     {
         manager = SingletonManager.GetInstance<GameModeManager>();
@@ -49,6 +51,18 @@ public class ShipGenerator : InteractiveObject
             _boatAnim.SetInteger("engineState",1);
         } else {
             _boatAnim.SetInteger("engineState", 0);
+        }
+
+
+        if (_uiSlider.fillAmount <= 0.19){
+            _uiSlider.color = _fillColourChange[2];
+        } else if (_uiSlider.fillAmount >= 0.20 && _uiSlider.fillAmount <= 0.39 )
+        {
+            _uiSlider.color = _fillColourChange[1];
+        }
+        else if(_uiSlider.fillAmount >= 0.40)
+        {
+            _uiSlider.color = _fillColourChange[0];
         }
     }
 
