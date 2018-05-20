@@ -47,12 +47,12 @@ public class GameModeManager : MonoBehaviour
             if (fuelPercentage >= _fullProgressBoundary)
             {
                 addedProgression += _fullSpeedProgress * Time.deltaTime;
-                _paddleWheelSpeed.rotationTime = 2.0f;
+                _paddleWheelSpeed.rotationTime = 4.0f;
             }
             else if (fuelPercentage >= _twoThirdsProgressBoundary)
             {
                 addedProgression += (_fullSpeedProgress * 0.66f) * Time.deltaTime;
-                _paddleWheelSpeed.rotationTime = 5.0f;
+                _paddleWheelSpeed.rotationTime = 7.0f;
             }
             else if (fuelPercentage > 0)
             {
