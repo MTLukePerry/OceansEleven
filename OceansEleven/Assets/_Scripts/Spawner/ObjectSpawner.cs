@@ -15,6 +15,7 @@ public class ObjectSpawner : MonoBehaviour
     public int _initialWaitSeconds = 10;
     public int _waitBetweenSpawnSecondsMin = 10;
     public int _waitBetweenSpawnSecondsMax = 20;
+    private Vector3 randomRotation;
 
     private void Start()
     {
@@ -62,7 +63,12 @@ public class ObjectSpawner : MonoBehaviour
                 break;
             }
         }
-
+        RotateMe();
         Instantiate(objectToSpawn, transform.position, this.transform.rotation);
+    }
+
+    private void RotateMe(){
+
+        transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
     }
 }
