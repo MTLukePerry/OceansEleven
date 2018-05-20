@@ -40,6 +40,7 @@ public class ControllerManager : MonoBehaviour
         {
             var player = Instantiate(_playerPrefab, DetermineSpawnPosition(i + 1), Quaternion.identity);
             player.GetComponent<PlayerController>().AssignController(i + 1);
+            player.GetComponent<PlayerController>().SetVoices(i);
         }
     }
 

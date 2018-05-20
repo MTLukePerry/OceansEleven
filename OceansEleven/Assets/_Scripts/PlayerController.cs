@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
     private ObjectProperties _pushItem;
     private InteractiveObject _interactingItem;
 
+    private AudioClip _pickupClip;
+    private AudioClip _throwClip;
+    private AudioSource _audioThrow;
+    private AudioSource _audioPickup;
+    [SerializeField] private AudioClip _respawnAudio;
+    private AudioSource _audioSpawn;
+
     private int _controllerNumber = 0;
 
     public InteractiveObject InteractingItem
@@ -41,6 +48,7 @@ public class PlayerController : MonoBehaviour
             _interactingItem = value;
         }
     }
+
 
     private void Start ()
     {
@@ -174,6 +182,7 @@ public class PlayerController : MonoBehaviour
                 //_pickedUpItemSlot.position = gameObject.transform.position + new Vector3(0, (_pickedUpItem.GetComponent<Collider>().bounds.size.y * 1.1f) + 0.5f, 0);
                 _pickedUpItem.transform.SetParent(gameObject.transform);
                 _pickedUpItem.OnPickedUp(this);
+                _audioPickup.Play();
             }
             else if (_pushItem != null)
             {
@@ -208,7 +217,9 @@ public class PlayerController : MonoBehaviour
         if (_pickedUpItem != null)
         {
             ReleasePickedUpItem(transform.forward);
+            _audioThrow.Play();
         }
+
     }
 
     private void ReleasePickedUpItem(Vector3 forceDirection = new Vector3())
@@ -281,6 +292,26 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = new Vector3();
         gameObject.transform.forward = transform.right;
         gameObject.transform.position = _respawnPosition;
+        _audioSpawn.Play();
         _respawning = false;
+
     }
+
+    public void SetVoices(int playerNum){
+        _pickupClip = GetComponent<SoundManager>()._playerEffortClips[playerNum];
+        _throwClip= GetComponent<SoundManager>()._playerThrowClips[playerNum];
+        _audioPickup = AddAudio(_pickupClip, false, false, 1.0f);
+        _audioThrow = AddAudio(_throwClip, false, false, 1.0f);
+        _audioSpawn = AddAudio(_respawnAudio, false, false, 1.0f);
+    }
+
+    public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol)
+    {
+        var newAudio = gameObject.AddComponent<AudioSource>();
+    newAudio.clip = clip;
+   newAudio.loop = loop;
+   newAudio.playOnAwake = playAwake;
+   newAudio.volume = vol;
+   return newAudio;
+ }
 }
