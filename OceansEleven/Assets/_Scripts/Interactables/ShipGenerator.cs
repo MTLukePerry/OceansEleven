@@ -18,10 +18,12 @@ public class ShipGenerator : InteractiveObject
     private bool _fueling = false;
 
     [SerializeField] Color32[] _fillColourChange;
+    private AudioSource _audio;
 
     private void Start()
     {
         manager = SingletonManager.GetInstance<GameModeManager>();
+        _audio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -31,10 +33,12 @@ public class ShipGenerator : InteractiveObject
             if (!_fueling)
             {
                 _currentFuel -= _decayRate * Time.deltaTime;
+                _audio.mute = true;
             }
             else
             {
                 _currentFuel += _fillRate * Time.deltaTime;
+                _audio.mute = false;
             }
             _currentFuel = Mathf.Clamp(_currentFuel, 0, 100);
 
