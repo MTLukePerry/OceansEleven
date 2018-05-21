@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 114101678194789402}
   - component: {fileID: 114418030576043924}
   - component: {fileID: 136066119188731202}
-  - component: {fileID: 114600346468615768}
   m_Layer: 9
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -295,6 +294,7 @@ MonoBehaviour:
   _intitialThrowStrength: 500
   _baseTurnRate: 12
   _respawnTime: 3
+  _soundManager: {fileID: 0}
   _respawnAudio: {fileID: 8300000, guid: b6a1af508f11c43178ae426530aa283b, type: 3}
 --- !u!114 &114418030576043924
 MonoBehaviour:
@@ -321,35 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14290f58b9bd83f4993a067d05ea4d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114600346468615768
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1999779218485198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b5fd1c1e0ca4b66b3025d16ffd088f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  efxSource: {fileID: 0}
-  lowPitchRange: 0.95
-  highPitchRange: 1.05
-  _playerEffortClips:
-  - {fileID: 8300000, guid: 45d18b5d30ac94fafb8b255ae0bd093a, type: 3}
-  - {fileID: 8300000, guid: ddc1ce6315d3245238cead39ee1d6e22, type: 3}
-  - {fileID: 8300000, guid: 7b755f5e96e3b4b27aba68e6f7103fd8, type: 3}
-  - {fileID: 8300000, guid: 3b5840228479d42e2a90595c159bb726, type: 3}
-  _playerJumpClips:
-  - {fileID: 8300000, guid: fd4d4ce7d3c1542a5a26b5bd3f32b138, type: 3}
-  - {fileID: 8300000, guid: a1d924eafbbbf485eb19334a6c8017a7, type: 3}
-  - {fileID: 8300000, guid: f0ef325e8af23450b87121340b78c7b8, type: 3}
-  - {fileID: 8300000, guid: 08ad036ad0d7142568e2de92ae2f519b, type: 3}
-  _playerThrowClips:
-  - {fileID: 8300000, guid: fc64d1983604a4ccdbb4087c041afbe0, type: 3}
-  - {fileID: 8300000, guid: 6f8aeda57b3724b15b8fa42f682b81f7, type: 3}
-  - {fileID: 8300000, guid: fc64d1983604a4ccdbb4087c041afbe0, type: 3}
-  - {fileID: 8300000, guid: 6f8aeda57b3724b15b8fa42f682b81f7, type: 3}
 --- !u!136 &136066119188731202
 CapsuleCollider:
   m_ObjectHideFlags: 1

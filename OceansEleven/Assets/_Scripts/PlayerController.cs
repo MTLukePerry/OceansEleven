@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private ObjectProperties _pushItem;
     private InteractiveObject _interactingItem;
 
+    public SoundManager _soundManager;
     private AudioClip _pickupClip;
     private AudioClip _throwClip;
     private AudioSource _audioThrow;
@@ -298,8 +299,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetVoices(int playerNum){
-        _pickupClip = GetComponent<SoundManager>()._playerEffortClips[playerNum];
-        _throwClip= GetComponent<SoundManager>()._playerThrowClips[playerNum];
+        _pickupClip = _soundManager._playerEffortClips[playerNum];
+        _throwClip= _soundManager._playerThrowClips[playerNum];
         _audioPickup = AddAudio(_pickupClip, false, false, 1.0f);
         _audioThrow = AddAudio(_throwClip, false, false, 1.0f);
         _audioSpawn = AddAudio(_respawnAudio, false, false, 1.0f);
