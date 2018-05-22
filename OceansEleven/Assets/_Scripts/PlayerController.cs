@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start ()
     {
+        _soundManager = SoundManager.instance;
+        SetVoices(_controllerNumber - 1);
         _rigidbody = GetComponent<Rigidbody>();
         _interactionTrigger = GetComponentInChildren<PlayerPickupTrigger>();
         _pickedUpItemSlot = transform.Find("PickupItemSlot");
